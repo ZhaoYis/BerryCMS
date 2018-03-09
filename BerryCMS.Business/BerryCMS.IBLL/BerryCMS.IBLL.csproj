@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9EB368A5-AD1E-43AF-87A3-CA32CD2EFAD9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BerryCMS.IBLL</RootNamespace>
+    <AssemblyName>BerryCMS.IBLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Chloe, Version=2.24.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Chloe.2.24.0\lib\net40\Chloe.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthorizeManage\IModuleBLL.cs" />
+    <Compile Include="AuthorizeManage\IModuleButtonBLL.cs" />
+    <Compile Include="AuthorizeManage\IModuleColumnBLL.cs" />
+    <Compile Include="AuthorizeManage\IAuthorizeDataBLL.cs" />
+    <Compile Include="AuthorizeManage\IAuthorizeBLL.cs" />
+    <Compile Include="AuthorizeManage\IPermissionBLL.cs" />
+    <Compile Include="BaseManage\ICommonBLL.cs" />
+    <Compile Include="BaseManage\IUserRelationBLL.cs" />
+    <Compile Include="BaseManage\IUserBLL.cs" />
+    <Compile Include="IBaseBLL.cs" />
+    <Compile Include="IBLLSession.cs" />
+    <Compile Include="IBLLSessionFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BerryCMS.Framework\BerryCMS.Code\BerryCMS.Code.csproj">
+      <Project>{3b2fe2e2-9f4b-4f0e-b01d-49c90029de58}</Project>
+      <Name>BerryCMS.Code</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BerryCMS.Modes\BerryCMS.Entity\BerryCMS.Entity.csproj">
+      <Project>{4cb6e59d-38c5-4e48-8b10-708a728fd33c}</Project>
+      <Name>BerryCMS.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SystemManage\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

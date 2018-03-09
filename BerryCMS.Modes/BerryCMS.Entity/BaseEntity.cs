@@ -1,0 +1,31 @@
+﻿namespace BerryCMS.Entity
+{
+    /// <summary>
+    /// 实体类基类
+    /// </summary>
+    public class BaseEntity
+    {
+        /// <summary>
+        /// 新增调用
+        /// </summary>
+        public virtual void Create()
+        {
+        }
+
+        /// <summary>
+        /// 删除调用
+        /// </summary>
+        /// <param name="id">主键值</param>
+        public virtual void Remove(string id)
+        {
+        }
+
+        /// <summary>
+        /// 编辑调用
+        /// </summary>
+        /// <param name="id">主键值</param>
+        public virtual void Modify(string id)
+        {
+        }
+    }
+}
