@@ -43,7 +43,7 @@ namespace BerryCMS.Controllers
         {
             return File(VerifyCodeHelper.GetVerifyCode(), @"image/Gif");
         }
-
+         
         /// <summary>
         /// 登录验证
         /// </summary>
@@ -114,7 +114,7 @@ namespace BerryCMS.Controllers
                         //写入登录信息
                         OperatorProvider.Provider.AddCurrent(operators);
 
-                        res = Success("登录成功", user, "/");
+                        res = Success("登录成功", user, "/Admin/Index");
                     }
                 }
                 #endregion

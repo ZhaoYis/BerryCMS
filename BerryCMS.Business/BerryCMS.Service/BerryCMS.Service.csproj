@@ -56,6 +56,10 @@
     <Compile Include="BaseManage\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\BerryCMS.Framework\BerryCMS.CacheFactory\BerryCMS.CacheFactory.csproj">
+      <Project>{43cb9c8f-9032-48be-8aad-594183b39fd1}</Project>
+      <Name>BerryCMS.CacheFactory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\BerryCMS.Framework\BerryCMS.Code\BerryCMS.Code.csproj">
       <Project>{3b2fe2e2-9f4b-4f0e-b01d-49c90029de58}</Project>
       <Name>BerryCMS.Code</Name>
@@ -63,6 +67,10 @@
     <ProjectReference Include="..\..\BerryCMS.Framework\BerryCMS.Extension\BerryCMS.Extension.csproj">
       <Project>{70736273-93c2-49b9-8e07-87ffd5c4673a}</Project>
       <Name>BerryCMS.Extension</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BerryCMS.Framework\BerryCMS.ICache\BerryCMS.ICache.csproj">
+      <Project>{56D2D1DB-9540-4C86-96C5-0CA0486670CB}</Project>
+      <Name>BerryCMS.ICache</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\BerryCMS.Framework\BerryCMS.IOC\BerryCMS.IOC.csproj">
       <Project>{e71fa5fa-9ea6-4b3b-b983-d5593d7d8472}</Project>
