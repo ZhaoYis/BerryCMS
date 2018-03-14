@@ -1,8 +1,10 @@
 ﻿using BerryCMS.IDAL;
 using BerryCMS.IDAL.AuthorizeManage;
 using BerryCMS.IDAL.BaseManage;
+using BerryCMS.IDAL.SystemManage;
 using BerryCMS.MsSQL.AuthorizeManage;
 using BerryCMS.MsSQL.BaseManage;
+using BerryCMS.MsSQL.SystemManage;
 
 namespace BerryCMS.MsSQL
 {
@@ -124,6 +126,21 @@ namespace BerryCMS.MsSQL
             set
             {
                 _iCommonDal = value;
+            }
+        }
+        #endregion
+
+        #region 09、系统日志接口 ILogDAL
+        private ILogDAL _iLogDal;
+        public ILogDAL LogDal
+        {
+            get
+            {
+                return _iLogDal ?? (_iLogDal = new LogDAL());
+            }
+            set
+            {
+                _iLogDal = value;
             }
         }
         #endregion

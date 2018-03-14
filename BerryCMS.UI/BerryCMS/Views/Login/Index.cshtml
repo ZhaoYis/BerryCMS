@@ -1,4 +1,6 @@
 ﻿@{
+    /**/
+
     Layout = null;
 }
 
@@ -12,6 +14,7 @@
     @Styles.Render("~/bundles/bootstrap/css")
     <link href="~/Content/styles/berry-login.css" rel="stylesheet" />
     <link href="~/Content/scripts/plugins/layer/skin/default/layer.css" rel="stylesheet" />
+
 </head>
 <body>
     <div style="position: absolute; top: 20px; left: 20px; color: #4b4b4b; font-size: 13px; line-height: 22px;"></div>
@@ -34,7 +37,7 @@
                             <input type="text" maxlength="4" class="px" id="code" placeholder="验证码" />
                         </div>
                         <div style="float: left;width: 35%">
-                            <img id="login_code" src="/Login/VerifyCode" class="" width="100" height="30" alt="点击切换验证码" title="点击切换验证码" style="cursor: pointer; padding-top: 2px;padding-left: 5px" />
+                            <img id="login_code" src="@Url.Action("VerifyCode","Login")" class="" width="100" height="30" alt="点击切换验证码" title="点击切换验证码" style="cursor: pointer; padding-top: 2px;padding-left: 5px" />
                         </div>
                     </dd>
                     <dd>

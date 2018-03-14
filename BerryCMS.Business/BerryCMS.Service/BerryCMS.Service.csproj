@@ -54,6 +54,7 @@
     <Compile Include="Base\OperContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BaseManage\UserService.cs" />
+    <Compile Include="SystemManage\LogService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\BerryCMS.Framework\BerryCMS.CacheFactory\BerryCMS.CacheFactory.csproj">
@@ -96,8 +97,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SystemManage\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

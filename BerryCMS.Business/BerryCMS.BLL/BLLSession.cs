@@ -1,8 +1,10 @@
 ﻿using BerryCMS.BLL.AuthorizeManage;
 using BerryCMS.BLL.BaseManage;
+using BerryCMS.BLL.SystemManage;
 using BerryCMS.IBLL;
 using BerryCMS.IBLL.AuthorizeManage;
 using BerryCMS.IBLL.BaseManage;
+using BerryCMS.IBLL.SystemManage;
 
 namespace BerryCMS.BLL
 {
@@ -98,7 +100,22 @@ namespace BerryCMS.BLL
         }
         #endregion
 
-        #region 07、公共业务接口 ICommonBLL
+        #region 07、业务接口 IModuleBLL
+        private IModuleBLL _iModuleBll;
+        public IModuleBLL ModuleBll
+        {
+            get
+            {
+                return _iModuleBll ?? (_iModuleBll = new ModuleBLL());
+            }
+            set
+            {
+                _iModuleBll = value;
+            }
+        }
+        #endregion
+
+        #region 08、公共业务接口 ICommonBLL
         private ICommonBLL _iCommonBll;
         public ICommonBLL CommonBll
         {
@@ -109,6 +126,21 @@ namespace BerryCMS.BLL
             set
             {
                 _iCommonBll = value;
+            }
+        }
+        #endregion
+
+        #region 09、系统日志业务接口 ILogBLL
+        private ILogBLL _iLogBll;
+        public ILogBLL LogBll
+        {
+            get
+            {
+                return _iLogBll ?? (_iLogBll = new LogBLL());
+            }
+            set
+            {
+                _iLogBll = value;
             }
         }
         #endregion

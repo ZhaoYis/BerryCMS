@@ -115,7 +115,7 @@ function CheckLogin(autologin) {
             autologin: autologin
         },
         success: function (req) {
-            if (req.Stats == 200) {
+            if (req.Status == 200) {
                 //检查是否自动登录，如果是则更新cookie
                 if (top.$.cookie('__autologin') == 1) {
                     top.$.cookie('__username', username, { path: "/", expires: 7 });

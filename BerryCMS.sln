@@ -65,6 +65,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BerryCMS", "BerryCMS.UI\Ber
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 Cache 应用缓存", "01 Cache 应用缓存", "{E23476BE-30F0-4A51-8172-53572B2C13DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BerryCMS.App.Cache", "BerryCMS.Business\BerryCMS.App.Cache\BerryCMS.App.Cache.csproj", "{47945A46-F0B6-4D03-90CD-F10FCB855A1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -151,6 +153,10 @@ Global
 		{22C6CCEF-45FE-438B-AF3E-3842CF7BB463}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22C6CCEF-45FE-438B-AF3E-3842CF7BB463}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22C6CCEF-45FE-438B-AF3E-3842CF7BB463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47945A46-F0B6-4D03-90CD-F10FCB855A1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47945A46-F0B6-4D03-90CD-F10FCB855A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47945A46-F0B6-4D03-90CD-F10FCB855A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47945A46-F0B6-4D03-90CD-F10FCB855A1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -180,5 +186,9 @@ Global
 		{31016783-8F6F-4035-A92C-F2DA869D7380} = {E845075D-B9F1-41E4-AC04-B534CAFC6FF9}
 		{22C6CCEF-45FE-438B-AF3E-3842CF7BB463} = {6A3FF862-FD66-4DE1-8AC3-D8876ACCC726}
 		{E23476BE-30F0-4A51-8172-53572B2C13DA} = {CE57AA5E-83DE-483D-90EE-805E447E3651}
+		{47945A46-F0B6-4D03-90CD-F10FCB855A1B} = {E23476BE-30F0-4A51-8172-53572B2C13DA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D2D0603-1614-4B9B-9FED-179DBF5387F7}
 	EndGlobalSection
 EndGlobal

@@ -22,6 +22,7 @@ namespace BerryCMS.Controllers
         #region 实例
         private readonly UserBLL _userBll = new UserBLL();
         private readonly PermissionBLL _permissionBll = new PermissionBLL();
+        private readonly AuthorizeBLL _authorizeBll = new AuthorizeBLL();
         #endregion
 
         /// <summary>
@@ -86,7 +87,7 @@ namespace BerryCMS.Controllers
                             UserId = user.UserId,
                             Code = user.EnCode,
                             Account = user.Account,
-                            UserName = user.RealName,
+                            UserName = user.RealName ?? user.NickName,
                             Password = user.Password,
                             Secretkey = user.Secretkey,
                             CompanyId = user.OrganizeId,
@@ -96,25 +97,24 @@ namespace BerryCMS.Controllers
                             ObjectId = objId,
                             LoginTime = DateTime.Now,
                             Token = DESEncryptHelper.Encrypt(CommonHelper.GetGuid(), user.Secretkey)
-                        };
+                        }; 
 
-                        //TODO 授权数据
                         //写入当前用户数据权限
-                        //AuthorizeDataModel dataAuthorize = new AuthorizeDataModel
-                        //{
-                        //    ReadAutorize = authorizeBLL.GetDataAuthor(operators),
-                        //    ReadAutorizeUserId = authorizeBLL.GetDataAuthorUserId(operators),
-                        //    WriteAutorize = authorizeBLL.GetDataAuthor(operators, true),
-                        //    WriteAutorizeUserId = authorizeBLL.GetDataAuthorUserId(operators, true)
-                        //};
-                        //operators.DataAuthorize = dataAuthorize;
-                        ////判断是否系统管理员
-                        //operators.IsSystem = userEntity.Account == "System";
+                        AuthorizeDataModel dataAuthorize = new AuthorizeDataModel
+                        {
+                            ReadAutorize = _authorizeBll.GetDataAuthor(operators),
+                            ReadAutorizeUserId = _authorizeBll.GetDataAuthorUserId(operators),
+                            WriteAutorize = _authorizeBll.GetDataAuthor(operators, true),
+                            WriteAutorizeUserId = _authorizeBll.GetDataAuthorUserId(operators, true)
+                        };
+                        operators.DataAuthorize = dataAuthorize;
+                        //判断是否系统管理员
+                        operators.IsSystem = user.Account == "System";
 
                         //写入登录信息
                         OperatorProvider.Provider.AddCurrent(operators);
 
-                        res = Success("登录成功", user, "/Admin/Index");
+                        res = Success("登录成功", user, "/Home/AdminDefault");
                     }
                 }
                 #endregion

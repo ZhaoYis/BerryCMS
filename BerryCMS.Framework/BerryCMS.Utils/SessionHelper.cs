@@ -20,7 +20,9 @@ namespace BerryCMS.Utils
         /// <param name="objValue">Session值</param>
         public static void AddSession(string strSessionName, object objValue)
         {
-            HttpContext.Current.Session[strSessionName] = objValue;
+            HttpContext context = HttpContext.Current;
+
+            context.Session[strSessionName] = objValue;
         }
         #endregion
 
@@ -34,14 +36,16 @@ namespace BerryCMS.Utils
         /// <param name="iYear">年数：当分钟数为0时按年数为有效期，当分钟数大于0时此参数随意设置</param>
         public static void AddSession(string strSessionName, object objValue, int iExpires, int iYear)
         {
-            HttpContext.Current.Session[strSessionName] = objValue;
+            HttpContext context = HttpContext.Current;
+
+            context.Session[strSessionName] = objValue;
             if (iExpires > 0)
             {
-                HttpContext.Current.Session.Timeout = iExpires;
+                context.Session.Timeout = iExpires;
             }
             else if (iYear > 0)
             {
-                HttpContext.Current.Session.Timeout = 60 * 24 * 365 * iYear;
+                context.Session.Timeout = 60 * 24 * 365 * iYear;
             }
         }
         #endregion
@@ -52,9 +56,11 @@ namespace BerryCMS.Utils
         /// </summary>
         /// <param name="strSessionName">Session对象名称</param>
         /// <returns>Session对象值</returns>
-        public static T GetSession<T>(string strSessionName)
+        public static T GetSession<T>(string strSessionName) where T : class
         {
-            return (T)HttpContext.Current.Session[strSessionName];
+            HttpContext context = HttpContext.Current;
+
+            return context.Session[strSessionName] as T;
         }
         #endregion
 
@@ -65,8 +71,9 @@ namespace BerryCMS.Utils
         /// <param name="strSessionName">Session对象名称</param>
         public static void RemoveSession(string strSessionName)
         {
-            HttpContext.Current.Session.Remove(strSessionName);
-            HttpContext.Current.Session.RemoveAll();
+            HttpContext context = HttpContext.Current;
+
+            context.Session.Remove(strSessionName);
         }
 
         /// <summary>
@@ -74,7 +81,9 @@ namespace BerryCMS.Utils
         /// </summary>
         public static void RemoveAllSession()
         {
-            HttpContext.Current.Session.RemoveAll();
+            HttpContext context = HttpContext.Current;
+
+            context.Session.RemoveAll();
         }
         #endregion
     }

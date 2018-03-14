@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -142,7 +143,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\Handler\AjaxOnlyAttribute.cs" />
     <Compile Include="App_Start\Handler\BaseController.cs" />
+    <Compile Include="App_Start\Handler\HandlerLoginAttribute.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClientDataController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -150,6 +154,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\loading1.gif" />
     <Content Include="Content\images\off-line.png" />
@@ -162,6 +167,14 @@
     <Content Include="Content\scripts\jquery\jquery-2.0.3.js" />
     <Content Include="Content\scripts\jquery\jquery-2.0.3.min.js" />
     <Content Include="Content\scripts\plugins\cookie\jquery.cookie.js" />
+    <Content Include="Content\scripts\plugins\dialog\default\icon-ext.png" />
+    <Content Include="Content\scripts\plugins\dialog\default\icon.png" />
+    <Content Include="Content\scripts\plugins\dialog\default\loading-0.gif" />
+    <Content Include="Content\scripts\plugins\dialog\default\loading-1.gif" />
+    <Content Include="Content\scripts\plugins\dialog\default\loading-2.gif" />
+    <Content Include="Content\scripts\plugins\dialog\default\sprite_main_png.png" />
+    <Content Include="Content\scripts\plugins\dialog\dialog.css" />
+    <Content Include="Content\scripts\plugins\dialog\dialog.js" />
     <Content Include="Content\scripts\plugins\jquery.md5.js" />
     <Content Include="Content\scripts\plugins\layer\layer.js" />
     <Content Include="Content\scripts\plugins\layer\mobile\layer.js" />
@@ -241,7 +254,11 @@
     <Content Include="Content\scripts\plugins\wizard\wizard.css" />
     <Content Include="Content\scripts\plugins\wizard\wizard.js" />
     <Content Include="Content\scripts\utils\berry-ajax.js" />
+    <Content Include="Content\scripts\utils\berry-clientdata.js" />
+    <Content Include="Content\scripts\utils\berry-index.js" />
     <Content Include="Content\scripts\utils\berry-ui.js" />
+    <Content Include="Content\styles\berry-index.css" />
+    <Content Include="Content\styles\berry-ui.css" />
     <Content Include="Content\styles\font-awesome.min.css" />
     <Content Include="Content\styles\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\styles\berry-login.css" />
@@ -264,6 +281,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\skin\" />
+    <Folder Include="Views\ClientData\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -316,6 +334,9 @@
     <Content Include="Config\system.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\AdminDefault.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

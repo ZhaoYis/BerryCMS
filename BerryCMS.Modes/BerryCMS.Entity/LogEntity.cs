@@ -1,16 +1,19 @@
 ﻿using System;
+using Chloe.Entity;
 
 namespace BerryCMS.Entity
 {
     /// <summary>
     /// 系统日志
     /// </summary>
+    [Table("Base_Log")]
     public class LogEntity : BaseEntity
     {
         #region 实体成员
         /// <summary>
         /// 日志主键
-        /// </summary>		
+        /// </summary>
+        [Column(IsPrimaryKey = true)]
         public string LogId { get; set; }
         /// <summary>
         /// 分类Id 1-登陆2-访问3-操作4-异常
@@ -83,11 +86,11 @@ namespace BerryCMS.Entity
         /// <summary>
         /// 删除标记
         /// </summary>		
-        public int? DeleteMark { get; set; }
+        public bool DeleteMark { get; set; }
         /// <summary>
         /// 有效标志
         /// </summary>		
-        public int? EnabledMark { get; set; }
+        public bool EnabledMark { get; set; }
         #endregion
     }
 }

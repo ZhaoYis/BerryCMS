@@ -105,14 +105,13 @@ namespace BerryCMS.Code.Operator
         {
             try
             {
-                object str = "";
-                AuthorizeDataModel dataAuthorize = null;
+                string str = "";
                 if (_loginProvider == "Cookie")
                 {
                     str = CookieHelper.GetCookie(LoginUserKey);
 
                     #region 解决cookie时，设置数据权限较多时无法登陆的bug
-                    dataAuthorize = CacheFactory.CacheFactory.GetCache().GetCache<AuthorizeDataModel>(LoginUserKey);
+                    AuthorizeDataModel dataAuthorize = CacheFactory.CacheFactory.GetCache().GetCache<AuthorizeDataModel>(LoginUserKey);
 
                     if (dataAuthorize == null)
                     {
@@ -124,14 +123,8 @@ namespace BerryCMS.Code.Operator
                 {
                     str = SessionHelper.GetSession<string>(LoginUserKey);
                 }
-                if (str != null && str.ToString() != "")
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+
+                return string.IsNullOrEmpty(str);
             }
             catch (Exception)
             {

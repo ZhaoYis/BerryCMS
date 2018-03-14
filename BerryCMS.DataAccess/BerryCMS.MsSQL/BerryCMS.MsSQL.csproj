@@ -55,6 +55,7 @@
     <Compile Include="DBSessionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DBSession.cs" />
+    <Compile Include="SystemManage\LogDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\BerryCMS.Framework\BerryCMS.Code\BerryCMS.Code.csproj">
@@ -81,8 +82,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SystemManage\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,6 @@
 ﻿using BerryCMS.IBLL.AuthorizeManage;
 using BerryCMS.IBLL.BaseManage;
+using BerryCMS.IBLL.SystemManage;
 
 namespace BerryCMS.IBLL
 {
@@ -40,5 +41,9 @@ namespace BerryCMS.IBLL
         /// 公共BLL
         /// </summary>
         ICommonBLL CommonBll { get; set; }
+        /// <summary>
+        /// 系统日志
+        /// </summary>
+        ILogBLL LogBll { get; set; }
     }
 }

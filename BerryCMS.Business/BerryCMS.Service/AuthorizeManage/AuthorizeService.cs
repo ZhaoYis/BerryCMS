@@ -39,7 +39,7 @@ namespace BerryCMS.Service.AuthorizeManage
             {
                 strAuthorData = @"   SELECT    *
                                         FROM      Base_AuthorizeData
-                                        WHERE     IsRead=0 AND
+                                        WHERE     IsRead = 0 AND
                                         ObjectId IN (
                                                 SELECT  ObjectId
                                                 FROM    Base_UserRelation

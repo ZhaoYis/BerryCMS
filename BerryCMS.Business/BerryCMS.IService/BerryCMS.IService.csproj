@@ -49,6 +49,7 @@
     <Compile Include="BaseManage\ICommonService.cs" />
     <Compile Include="BaseManage\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemManage\ILogService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\BerryCMS.Framework\BerryCMS.Code\BerryCMS.Code.csproj">
@@ -60,8 +61,6 @@
       <Name>BerryCMS.Entity</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SystemManage\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

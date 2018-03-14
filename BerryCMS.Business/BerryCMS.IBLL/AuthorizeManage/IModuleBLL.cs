@@ -1,4 +1,5 @@
-﻿using BerryCMS.Entity.AuthorizeManage;
+﻿using System.Collections.Generic;
+using BerryCMS.Entity.AuthorizeManage;
 
 namespace BerryCMS.IBLL.AuthorizeManage
 {
@@ -7,6 +8,11 @@ namespace BerryCMS.IBLL.AuthorizeManage
     /// </summary>
     public partial interface IModuleBLL : IBaseBLL<ModuleEntity>
     {
-        
+        /// <summary>
+        /// 获取授权功能
+        /// </summary>
+        /// <param name="userId">用户Id</param>
+        /// <returns></returns>
+        IEnumerable<ModuleEntity> GetModuleList(string userId);
     }
 }

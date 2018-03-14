@@ -1,6 +1,7 @@
 ﻿
 using BerryCMS.IDAL.AuthorizeManage;
 using BerryCMS.IDAL.BaseManage;
+using BerryCMS.IDAL.SystemManage;
 
 namespace BerryCMS.IDAL
 {
@@ -14,6 +15,10 @@ namespace BerryCMS.IDAL
         /// 公共DAL
         /// </summary>
         ICommonDAL CommonDal { get; set; }
+        /// <summary>
+        /// 系统日志
+        /// </summary>
+        ILogDAL LogDal { get; set; }
         #endregion
 
         /// <summary>
