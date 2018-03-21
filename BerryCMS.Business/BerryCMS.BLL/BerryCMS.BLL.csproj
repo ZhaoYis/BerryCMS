@@ -52,6 +52,8 @@
     <Compile Include="AuthorizeManage\PermissionBLL.cs" />
     <Compile Include="BaseBLL.cs" />
     <Compile Include="BaseManage\CommonBLL.cs" />
+    <Compile Include="BaseManage\DepartmentBLL.cs" />
+    <Compile Include="BaseManage\OrganizeBLL.cs" />
     <Compile Include="BaseManage\UserRelationBLL.cs" />
     <Compile Include="BaseManage\UserBLL.cs" />
     <Compile Include="BLLSession.cs" />

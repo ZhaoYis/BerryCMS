@@ -45,5 +45,13 @@ namespace BerryCMS.IBLL
         /// 系统日志
         /// </summary>
         ILogBLL LogBll { get; set; }
+        /// <summary>
+        /// 机构
+        /// </summary>
+        IOrganizeBLL OrganizeBll { get; set; }
+        /// <summary>
+        /// 部门管理
+        /// </summary>
+        IDepartmentBLL DepartmentBll { get; set; }
     }
 }

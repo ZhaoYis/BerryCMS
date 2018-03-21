@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using BerryCMS.Entity.BaseManage;
 
-namespace BerryCMS.IBLL.BaseManage
+namespace BerryCMS.IService.BaseManage
 {
     /// <summary>
     /// 机构管理
     /// </summary>
-    public partial interface IOrganizeBLL : IBaseBLL<OrganizeEntity>
+    public interface IOrganizeService
     {
         #region 获取数据
         /// <summary>

@@ -294,6 +294,10 @@
     <Content Include="Content\styles\fonts\FontAwesome.otf" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\BerryCMS.Business\BerryCMS.App.Cache\BerryCMS.App.Cache.csproj">
+      <Project>{47945a46-f0b6-4d03-90cd-f10fcb855a1b}</Project>
+      <Name>BerryCMS.App.Cache</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\BerryCMS.Business\BerryCMS.BLL\BerryCMS.BLL.csproj">
       <Project>{f7cff89c-c306-4cc3-a233-76ec8e15332b}</Project>
       <Name>BerryCMS.BLL</Name>

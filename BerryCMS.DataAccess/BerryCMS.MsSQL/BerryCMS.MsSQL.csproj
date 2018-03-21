@@ -50,6 +50,8 @@
     <Compile Include="BaseDAL.cs" />
     <Compile Include="AuthorizeManage\ModuleColumnDAL.cs" />
     <Compile Include="BaseManage\CommonDAL.cs" />
+    <Compile Include="BaseManage\DepartmentDAL.cs" />
+    <Compile Include="BaseManage\OrganizeDAL.cs" />
     <Compile Include="BaseManage\UserRelationDAL.cs" />
     <Compile Include="BaseManage\UserDAL.cs" />
     <Compile Include="DBSessionFactory.cs" />

@@ -41,8 +41,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DepartmentCache.cs" />
     <Compile Include="OrganizeCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BerryCMS.Framework\BerryCMS.CacheFactory\BerryCMS.CacheFactory.csproj">
+      <Project>{43cb9c8f-9032-48be-8aad-594183b39fd1}</Project>
+      <Name>BerryCMS.CacheFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BerryCMS.Framework\BerryCMS.ICache\BerryCMS.ICache.csproj">
+      <Project>{56D2D1DB-9540-4C86-96C5-0CA0486670CB}</Project>
+      <Name>BerryCMS.ICache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BerryCMS.Modes\BerryCMS.Entity\BerryCMS.Entity.csproj">
+      <Project>{4cb6e59d-38c5-4e48-8b10-708a728fd33c}</Project>
+      <Name>BerryCMS.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BerryCMS.BLL\BerryCMS.BLL.csproj">
+      <Project>{f7cff89c-c306-4cc3-a233-76ec8e15332b}</Project>
+      <Name>BerryCMS.BLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

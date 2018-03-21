@@ -144,5 +144,35 @@ namespace BerryCMS.BLL
             }
         }
         #endregion
+
+        #region 10、系统机构管理业务接口 IOrganizeBLL
+        private IOrganizeBLL _iOrganizeBll;
+        public IOrganizeBLL OrganizeBll
+        {
+            get
+            {
+                return _iOrganizeBll ?? (_iOrganizeBll = new OrganizeBLL());
+            }
+            set
+            {
+                _iOrganizeBll = value;
+            }
+        }
+        #endregion
+
+        #region 10、系统部门管理业务接口 IDepartmentBLL
+        private IDepartmentBLL _iDepartmentBll;
+        public IDepartmentBLL DepartmentBll
+        {
+            get
+            {
+                return _iDepartmentBll ?? (_iDepartmentBll = new DepartmentBLL());
+            }
+            set
+            {
+                _iDepartmentBll = value;
+            }
+        }
+        #endregion
     }
 }

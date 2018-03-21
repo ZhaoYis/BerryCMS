@@ -1,35 +1,32 @@
 ﻿using System.Collections.Generic;
 using BerryCMS.Entity.BaseManage;
 
-namespace BerryCMS.IBLL.BaseManage
+namespace BerryCMS.IService.BaseManage
 {
-    /// <summary>
-    /// 机构管理
-    /// </summary>
-    public partial interface IOrganizeBLL : IBaseBLL<OrganizeEntity>
+    public interface IDepartmentService
     {
         #region 获取数据
         /// <summary>
-        /// 机构列表
+        /// 部门列表
         /// </summary>
         /// <returns></returns>
-        IEnumerable<OrganizeEntity> GetOrganizeList();
+        IEnumerable<DepartmentEntity> GetDepartmentList();
         /// <summary>
-        /// 机构实体
+        /// 部门实体
         /// </summary>
         /// <param name="keyValue">主键值</param>
         /// <returns></returns>
-        OrganizeEntity GetOrganizeEntity(string keyValue);
+        DepartmentEntity GetDepartmentEntity(string keyValue);
         #endregion
 
         #region 验证数据
         /// <summary>
-        /// 公司名称不能重复
+        /// 部门名称不能重复
         /// </summary>
-        /// <param name="organizeName">公司名称</param>
+        /// <param name="DepartmentName">公司名称</param>
         /// <param name="keyValue">主键</param>
         /// <returns></returns>
-        bool ExistFullName(string organizeName, string keyValue);
+        bool ExistFullName(string DepartmentName, string keyValue);
         /// <summary>
         /// 外文名称不能重复
         /// </summary>
@@ -48,17 +45,17 @@ namespace BerryCMS.IBLL.BaseManage
 
         #region 提交数据
         /// <summary>
-        /// 删除机构
+        /// 删除部门
         /// </summary>
         /// <param name="keyValue">主键</param>
-        void RemoveOrganizeByKey(string keyValue);
+        void RemoveDepartmentByKey(string keyValue);
         /// <summary>
-        /// 保存机构表单（新增、修改）
+        /// 保存部门表单（新增、修改）
         /// </summary>
         /// <param name="keyValue">主键值</param>
-        /// <param name="organizeEntity">机构实体</param>
+        /// <param name="departmentEntity">机构实体</param>
         /// <returns></returns>
-        void AddOrganize(string keyValue, OrganizeEntity organizeEntity);
+        void AddDepartment(string keyValue, DepartmentEntity departmentEntity);
         #endregion
     }
 }

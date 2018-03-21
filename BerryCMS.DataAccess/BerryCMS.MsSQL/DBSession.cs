@@ -144,5 +144,35 @@ namespace BerryCMS.MsSQL
             }
         }
         #endregion
+
+        #region 10、系统机构管理接口 IOrganizeDAL
+        private IOrganizeDAL _iOrganizeDal;
+        public IOrganizeDAL OrganizeDal
+        {
+            get
+            {
+                return _iOrganizeDal ?? (_iOrganizeDal = new OrganizeDAL());
+            }
+            set
+            {
+                _iOrganizeDal = value;
+            }
+        }
+        #endregion
+
+        #region 10、系统部门管理接口 IDepartmentDAL
+        private IDepartmentDAL _iDepartmentDal;
+        public IDepartmentDAL DepartmentDal
+        {
+            get
+            {
+                return _iDepartmentDal ?? (_iDepartmentDal = new DepartmentDAL());
+            }
+            set
+            {
+                _iDepartmentDal = value;
+            }
+        }
+        #endregion
     }
 }

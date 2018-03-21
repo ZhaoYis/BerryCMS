@@ -47,6 +47,8 @@
     <Compile Include="AuthorizeManage\IModuleService.cs" />
     <Compile Include="AuthorizeManage\IPermissionService.cs" />
     <Compile Include="BaseManage\ICommonService.cs" />
+    <Compile Include="BaseManage\IDepartmentService.cs" />
+    <Compile Include="BaseManage\IOrganizeService.cs" />
     <Compile Include="BaseManage\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemManage\ILogService.cs" />

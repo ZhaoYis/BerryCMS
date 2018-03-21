@@ -49,5 +49,13 @@ namespace BerryCMS.IDAL
         /// 系统功能
         /// </summary>
         IModuleDAL ModuleDal { get; set; }
+        /// <summary>
+        /// 机构管理
+        /// </summary>
+        IOrganizeDAL OrganizeDal { get; set; }
+        /// <summary>
+        /// 部门管理
+        /// </summary>
+        IDepartmentDAL DepartmentDal { get; set; }
     }
 }

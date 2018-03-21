@@ -26,8 +26,7 @@ namespace BerryCMS.Controllers
         #endregion
 
         /// <summary>
-        /// 登录主页
-        /// </summary>
+        /// 登录主页</summary>
         /// <returns></returns>
         [HttpGet]
         public ActionResult Index()
@@ -44,7 +43,7 @@ namespace BerryCMS.Controllers
         {
             return File(VerifyCodeHelper.GetVerifyCode(), @"image/Gif");
         }
-         
+        
         /// <summary>
         /// 登录验证
         /// </summary>
@@ -116,7 +115,7 @@ namespace BerryCMS.Controllers
 
                         res = Success("登录成功", user, "/Home/AdminDefault");
                     }
-                }
+                } 
                 #endregion
 
             }, e =>

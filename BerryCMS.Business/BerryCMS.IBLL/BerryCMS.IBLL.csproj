@@ -50,6 +50,7 @@
     <Compile Include="AuthorizeManage\IAuthorizeBLL.cs" />
     <Compile Include="AuthorizeManage\IPermissionBLL.cs" />
     <Compile Include="BaseManage\ICommonBLL.cs" />
+    <Compile Include="BaseManage\IDepartmentBLL.cs" />
     <Compile Include="BaseManage\IOrganizeBLL.cs" />
     <Compile Include="BaseManage\IUserRelationBLL.cs" />
     <Compile Include="BaseManage\IUserBLL.cs" />

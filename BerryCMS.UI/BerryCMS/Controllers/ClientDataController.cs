@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BerryCMS.App.Cache;
 using BerryCMS.BLL.AuthorizeManage;
 using BerryCMS.Code;
 using BerryCMS.Entity.AuthorizeManage;
@@ -19,6 +20,9 @@ namespace BerryCMS.Controllers
         private readonly ModuleBLL _moduleBll = new ModuleBLL();
         private readonly ModuleButtonBLL _moduleButtonBll = new ModuleButtonBLL();
         private readonly ModuleColumnBLL _moduleColumnBll = new ModuleColumnBLL();
+
+        private readonly OrganizeCache _organizeCache = new OrganizeCache();
+        private readonly DepartmentCache _departmentCache = new DepartmentCache();
 
         #region 获取数据
         /// <summary>
@@ -53,8 +57,9 @@ namespace BerryCMS.Controllers
         /// <returns></returns>
         private object GetOrganizeData()
         {
-            var data = organizeCache.GetList();
+            var data = _organizeCache.GetList();
             Dictionary<string, object> dictionary = new Dictionary<string, object>();
+
             foreach (OrganizeEntity item in data)
             {
                 var fieldItem = new
@@ -72,7 +77,7 @@ namespace BerryCMS.Controllers
         /// <returns></returns>
         private object GetDepartmentData()
         {
-            var data = departmentCache.GetList();
+            var data = _departmentCache.GetList();
             Dictionary<string, object> dictionary = new Dictionary<string, object>();
             foreach (DepartmentEntity item in data)
             {
@@ -87,7 +92,7 @@ namespace BerryCMS.Controllers
             return dictionary;
         }
         /// <summary>
-        /// 获取岗位数据
+        /// 获取用户组数据
         /// </summary>
         /// <returns></returns>
         private object GetUserGroupData()

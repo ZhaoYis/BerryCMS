@@ -49,6 +49,8 @@
     <Compile Include="AuthorizeManage\ModuleColumnService.cs" />
     <Compile Include="AuthorizeManage\ModuleService.cs" />
     <Compile Include="AuthorizeManage\PermissionService.cs" />
+    <Compile Include="BaseManage\DepartmentService.cs" />
+    <Compile Include="BaseManage\OrganizeService.cs" />
     <Compile Include="Base\BaseService.cs" />
     <Compile Include="Base\CommonService.cs" />
     <Compile Include="Base\OperContext.cs" />
