@@ -160,7 +160,7 @@ namespace BerryCMS.MsSQL
         }
         #endregion
 
-        #region 10、系统部门管理接口 IDepartmentDAL
+        #region 11、系统部门管理接口 IDepartmentDAL
         private IDepartmentDAL _iDepartmentDal;
         public IDepartmentDAL DepartmentDal
         {
@@ -171,6 +171,36 @@ namespace BerryCMS.MsSQL
             set
             {
                 _iDepartmentDal = value;
+            }
+        }
+        #endregion
+
+        #region 12、系统用户组管理接口 IUserGroupDAL
+        private IUserGroupDAL _iUserGroupDal;
+        public IUserGroupDAL UserGroupDal
+        {
+            get
+            {
+                return _iUserGroupDal ?? (_iUserGroupDal = new UserGroupDAL());
+            }
+            set
+            {
+                _iUserGroupDal = value;
+            }
+        }
+        #endregion
+
+        #region 13、系统岗位管理接口 IPostDAL
+        private IPostDAL _iPostDal;
+        public IPostDAL PostDal
+        {
+            get
+            {
+                return _iPostDal ?? (_iPostDal = new PostDAL());
+            }
+            set
+            {
+                _iPostDal = value;
             }
         }
         #endregion

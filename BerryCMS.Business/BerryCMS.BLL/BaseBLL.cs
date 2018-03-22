@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq.Expressions;
+using BerryCMS.Entity;
 using BerryCMS.IBLL;
 using BerryCMS.IDAL;
 using BerryCMS.IOC;
@@ -313,10 +314,23 @@ namespace BerryCMS.BLL
         /// <param name="pageIndex">索引</param>
         /// <param name="total">总记录</param>
         /// <returns></returns>
-        public IEnumerable<T> FindPageList(Expression<Func<T, object>> orderby, bool isAsc, int pageSize, int pageIndex, out int total)
+        public IEnumerable<T> FindPageList(Expression<Func<T, bool>> orderby, bool isAsc, int pageSize, int pageIndex, out int total)
         {
             return Idal.FindPageList(orderby, isAsc, pageSize, pageIndex, out total);
         }
+
+        /// <summary>
+        /// 获取分页数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="orderby">排序条件</param>
+        /// <param name="pagination">分页参数</param>
+        /// <returns></returns>
+        public IEnumerable<T> FindPageList(Expression<Func<T, bool>> orderby, PaginationEntity pagination)
+        {
+            return Idal.FindPageList(orderby, pagination);
+        }
+
         /// <summary>
         /// 根据条件获取分页数据
         /// </summary>
@@ -359,7 +373,7 @@ namespace BerryCMS.BLL
         public IEnumerable<T> FindPageList(string strSql, DbParam[] DbParam, int pageSize, int pageIndex, out int total)
         {
             return Idal.FindPageList(strSql, DbParam, pageSize, pageIndex, out total);
-        } 
+        }
         #endregion
     }
 }

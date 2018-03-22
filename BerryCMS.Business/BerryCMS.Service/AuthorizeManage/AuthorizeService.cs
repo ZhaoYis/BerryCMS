@@ -125,11 +125,11 @@ namespace BerryCMS.Service.AuthorizeManage
         /// <returns></returns>
         public bool ActionAuthorize(string userId, string moduleId, string action)
         {
-            List<AuthorizeUrlModel> authorizeUrlList = CacheFactory.CacheFactory.GetCache().GetCache<List<AuthorizeUrlModel>>("__ActionAuthorize_" + userId);
+            List<AuthorizeUrlModel> authorizeUrlList = CacheFactory.CacheFactory.GetCacheInstance().GetCache<List<AuthorizeUrlModel>>("__ActionAuthorize_" + userId);
             if (authorizeUrlList == null || authorizeUrlList.Count == 0)
             {
                 authorizeUrlList = this.GetUrlList(userId).ToList();
-                CacheFactory.CacheFactory.GetCache().WriteCache(authorizeUrlList, "__ActionAuthorize_" + userId, DateTime.Now.AddMinutes(5));
+                CacheFactory.CacheFactory.GetCacheInstance().WriteCache(authorizeUrlList, "__ActionAuthorize_" + userId, DateTime.Now.AddMinutes(5));
             }
 
             authorizeUrlList = authorizeUrlList.FindAll(a => a.ModuleId.Equals(moduleId));

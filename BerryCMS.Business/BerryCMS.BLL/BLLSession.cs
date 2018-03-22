@@ -160,7 +160,7 @@ namespace BerryCMS.BLL
         }
         #endregion
 
-        #region 10、系统部门管理业务接口 IDepartmentBLL
+        #region 11、系统部门管理业务接口 IDepartmentBLL
         private IDepartmentBLL _iDepartmentBll;
         public IDepartmentBLL DepartmentBll
         {
@@ -171,6 +171,36 @@ namespace BerryCMS.BLL
             set
             {
                 _iDepartmentBll = value;
+            }
+        }
+        #endregion
+
+        #region 12、系统用户组管理业务接口 IUserGroupBLL
+        private IUserGroupBLL _iUserGroupBll;
+        public IUserGroupBLL UserGroupBll
+        {
+            get
+            {
+                return _iUserGroupBll ?? (_iUserGroupBll = new UserGroupBLL());
+            }
+            set
+            {
+                _iUserGroupBll = value;
+            }
+        }
+        #endregion
+        
+        #region 13、系统岗位管理业务接口 IPostBLL
+        private IPostBLL _iPostBll;
+        public IPostBLL PostBll
+        {
+            get
+            {
+                return _iPostBll ?? (_iPostBll = new PostBLL());
+            }
+            set
+            {
+                _iPostBll = value;
             }
         }
         #endregion

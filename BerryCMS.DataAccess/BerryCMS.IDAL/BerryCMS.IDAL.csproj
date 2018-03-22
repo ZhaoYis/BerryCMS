@@ -57,6 +57,8 @@
     <Compile Include="BaseManage\ICommonDAL.cs" />
     <Compile Include="BaseManage\IDepartmentDAL.cs" />
     <Compile Include="BaseManage\IOrganizeDAL.cs" />
+    <Compile Include="BaseManage\IPostDAL.cs" />
+    <Compile Include="BaseManage\IUserGroupDAL.cs" />
     <Compile Include="BaseManage\IUserRelationDAL.cs" />
     <Compile Include="BaseManage\IUserDAL.cs" />
     <Compile Include="DbCommandInterceptor.cs" />

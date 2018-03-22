@@ -23,6 +23,8 @@ namespace BerryCMS.Controllers
 
         private readonly OrganizeCache _organizeCache = new OrganizeCache();
         private readonly DepartmentCache _departmentCache = new DepartmentCache();
+        private readonly UserGroupCache _userGroupCache = new UserGroupCache();
+        private readonly PostCache _postCache = new PostCache();
 
         #region 获取数据
         /// <summary>
@@ -97,7 +99,7 @@ namespace BerryCMS.Controllers
         /// <returns></returns>
         private object GetUserGroupData()
         {
-            var data = userGroupCache.GetList();
+            var data = _userGroupCache.GetList();
             Dictionary<string, object> dictionary = new Dictionary<string, object>();
             foreach (RoleEntity item in data)
             {
@@ -116,7 +118,7 @@ namespace BerryCMS.Controllers
         /// <returns></returns>
         private object GetPostData()
         {
-            var data = postCache.GetList();
+            var data = _postCache.GetList();
             Dictionary<string, object> dictionary = new Dictionary<string, object>();
             foreach (RoleEntity item in data)
             {

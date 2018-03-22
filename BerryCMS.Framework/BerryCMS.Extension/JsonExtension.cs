@@ -4,6 +4,7 @@ using System.Data;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 
 namespace BerryCMS.Extension
 {
@@ -122,6 +123,16 @@ namespace BerryCMS.Extension
         public static T JsonToEntity<T>(this string json)
         {
             return JsonConvert.DeserializeObject<T>(json);
+        }
+
+        /// <summary>
+        /// Json字符串转换成JObject
+        /// </summary>
+        /// <param name="json">Json字符串</param>
+        /// <returns></returns>
+        public static JObject ToJObject(this string json)
+        {
+            return json == null ? null : JObject.Parse(json.Replace("&nbsp;", ""));
         }
     }
 }

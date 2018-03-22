@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
+using BerryCMS.Entity;
 using BerryCMS.Extension;
 using BerryCMS.IDAL;
 using Chloe;
@@ -316,7 +317,7 @@ namespace BerryCMS.MsSQL
         /// <param name="pageIndex">索引</param>
         /// <param name="total">总记录</param>
         /// <returns></returns>
-        public IEnumerable<T> FindPageList(Expression<Func<T, object>> orderby, bool isAsc, int pageSize, int pageIndex, out int total)
+        public IEnumerable<T> FindPageList(Expression<Func<T, bool>> orderby, bool isAsc, int pageSize, int pageIndex, out int total)
         {
             IEnumerable<T> res;
 
@@ -333,6 +334,46 @@ namespace BerryCMS.MsSQL
 
             return res;
         }
+
+        /// <summary>
+        /// 获取分页数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="orderby">排序条件</param>
+        /// <param name="pagination">分页参数</param>
+        /// <returns></returns>
+        public IEnumerable<T> FindPageList(Expression<Func<T, bool>> orderby, PaginationEntity pagination)
+        {
+            if (pagination == null)
+            {
+                pagination = new PaginationEntity
+                {
+                    PageSize = 20,
+                    PageIndex = 1
+                };
+            }
+
+            bool isAsc = pagination.Sord.ToLower().Equals("asc");
+            int pageSize = pagination.PageSize;
+            int pageIndex = pagination.PageIndex;
+
+            IEnumerable<T> res;
+
+            IQuery<T> query = _context.Query<T>();
+            if (isAsc)
+            {
+                res = query.OrderBy(orderby).TakePage(pageIndex, pageSize).ToList();
+            }
+            else
+            {
+                res = query.OrderByDesc(orderby).TakePage(pageIndex, pageSize).ToList();
+            }
+            int total = query.Count();
+            pagination.TotalRecords = total;
+
+            return res;
+        }
+
         /// <summary>
         /// 根据条件获取分页数据
         /// </summary>

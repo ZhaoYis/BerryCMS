@@ -52,6 +52,8 @@
     <Compile Include="BaseManage\ICommonBLL.cs" />
     <Compile Include="BaseManage\IDepartmentBLL.cs" />
     <Compile Include="BaseManage\IOrganizeBLL.cs" />
+    <Compile Include="BaseManage\IPostBLL.cs" />
+    <Compile Include="BaseManage\IUserGroupBLL.cs" />
     <Compile Include="BaseManage\IUserRelationBLL.cs" />
     <Compile Include="BaseManage\IUserBLL.cs" />
     <Compile Include="IBaseBLL.cs" />

@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Linq.Expressions;
+using BerryCMS.Entity;
 using Chloe;
 
 namespace BerryCMS.IBLL
@@ -187,7 +188,17 @@ namespace BerryCMS.IBLL
         /// <param name="pageIndex">索引</param>
         /// <param name="total">总记录</param>
         /// <returns></returns>
-        IEnumerable<T> FindPageList(Expression<Func<T, object>> orderby, bool isAsc, int pageSize, int pageIndex, out int total);
+        IEnumerable<T> FindPageList(Expression<Func<T, bool>> orderby, bool isAsc, int pageSize, int pageIndex, out int total);
+
+        /// <summary>
+        /// 获取分页数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="orderby">排序条件</param>
+        /// <param name="pagination">分页参数</param>
+        /// <returns></returns>
+        IEnumerable<T> FindPageList(Expression<Func<T, bool>> orderby, PaginationEntity pagination);
+
         /// <summary>
         /// 根据条件获取分页数据
         /// </summary>

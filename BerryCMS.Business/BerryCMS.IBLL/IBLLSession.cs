@@ -53,5 +53,13 @@ namespace BerryCMS.IBLL
         /// 部门管理
         /// </summary>
         IDepartmentBLL DepartmentBll { get; set; }
+        /// <summary>
+        /// 用户组管理
+        /// </summary>
+        IUserGroupBLL UserGroupBll { get; set; }
+        /// <summary>
+        /// 岗位管理
+        /// </summary>
+        IPostBLL PostBll { get; set; }
     }
 }

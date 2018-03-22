@@ -34,6 +34,7 @@
     <Reference Include="Chloe, Version=2.24.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Chloe.2.24.0\lib\net40\Chloe.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,6 +52,8 @@
     <Compile Include="AuthorizeManage\PermissionService.cs" />
     <Compile Include="BaseManage\DepartmentService.cs" />
     <Compile Include="BaseManage\OrganizeService.cs" />
+    <Compile Include="BaseManage\PostService.cs" />
+    <Compile Include="BaseManage\UserGroupService.cs" />
     <Compile Include="Base\BaseService.cs" />
     <Compile Include="Base\CommonService.cs" />
     <Compile Include="Base\OperContext.cs" />

@@ -1,4 +1,6 @@
 ﻿using System;
+using BerryCMS.Code.Operator;
+using BerryCMS.Utils;
 using Chloe.Entity;
 
 namespace BerryCMS.Entity.BaseManage
@@ -9,6 +11,33 @@ namespace BerryCMS.Entity.BaseManage
     [Table("Base_Role")]
     public class RoleEntity : BaseEntity
     {
+        #region 扩展操作
+        /// <summary>
+        /// 新增调用
+        /// </summary>
+        public override void Create()
+        {
+            this.RoleId = CommonHelper.GetGuid().ToString();
+            this.CreateDate = DateTime.Now;
+            this.CreateUserId = OperatorProvider.Provider.Current().UserId;
+            this.CreateUserName = OperatorProvider.Provider.Current().UserName;
+            this.DeleteMark = false;
+            this.EnabledMark = true;
+        }
+
+        /// <summary>
+        /// 编辑调用
+        /// </summary>
+        /// <param name="keyValue"></param>
+        public override void Modify(string keyValue)
+        {
+            this.RoleId = keyValue;
+            this.ModifyDate = DateTime.Now;
+            this.ModifyUserId = OperatorProvider.Provider.Current().UserId;
+            this.ModifyUserName = OperatorProvider.Provider.Current().UserName;
+        }
+        #endregion
+
         /// <summary>
         /// 角色主键
         /// </summary>
@@ -19,7 +48,7 @@ namespace BerryCMS.Entity.BaseManage
         /// </summary>
         public string OrganizeId { get; set; }
         /// <summary>
-        /// 分类1-角色2-岗位3-职位4-工作组
+        /// 分类1-角色 2-岗位 3-职位 4-工作组
         /// </summary>
         public int Category { get; set; }
         /// <summary>

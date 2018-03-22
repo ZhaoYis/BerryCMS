@@ -57,5 +57,13 @@ namespace BerryCMS.IDAL
         /// 部门管理
         /// </summary>
         IDepartmentDAL DepartmentDal { get; set; }
+        /// <summary>
+        /// 用户组管理
+        /// </summary>
+        IUserGroupDAL UserGroupDal { get; set; }
+        /// <summary>
+        /// 岗位管理
+        /// </summary>
+        IPostDAL PostDal { get; set; }
     }
 }

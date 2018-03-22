@@ -15,10 +15,10 @@ namespace BerryCMS.CacheFactory
         }
 
         /// <summary>
-        /// 定义通用Cache
+        /// 获取缓存对象
         /// </summary>
         /// <returns></returns>
-        public static IBaseCache GetCache()
+        public static IBaseCache GetCacheInstance()
         {
             switch (CacheType)
             {

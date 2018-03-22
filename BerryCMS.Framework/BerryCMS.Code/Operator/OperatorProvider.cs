@@ -33,7 +33,7 @@ namespace BerryCMS.Code.Operator
                 if (_loginProvider == "Cookie")
                 {
                     #region 解决cookie时，设置数据权限较多时无法登陆的bug 
-                    CacheFactory.CacheFactory.GetCache().WriteCache(user.DataAuthorize, LoginUserKey, user.LoginTime.AddHours(12));
+                    CacheFactory.CacheFactory.GetCacheInstance().WriteCache(user.DataAuthorize, LoginUserKey, user.LoginTime.AddHours(12));
                     user.DataAuthorize = null;
                     #endregion
 
@@ -43,7 +43,7 @@ namespace BerryCMS.Code.Operator
                 {
                     SessionHelper.AddSession(LoginUserKey, DESEncryptHelper.Encrypt(user.TryToJson()));
                 }
-                CacheFactory.CacheFactory.GetCache().WriteCache(user.Token, user.UserId, user.LoginTime.AddHours(12));
+                CacheFactory.CacheFactory.GetCacheInstance().WriteCache(user.Token, user.UserId, user.LoginTime.AddHours(12));
             }
             catch (Exception ex)
             {
@@ -64,7 +64,7 @@ namespace BerryCMS.Code.Operator
                     user = DESEncryptHelper.Decrypt(CookieHelper.GetCookie(LoginUserKey).ToString()).JsonToEntity<OperatorEntity>();
 
                     #region 解决cookie时，设置数据权限较多时无法登陆的bug
-                    AuthorizeDataModel dataAuthorize = CacheFactory.CacheFactory.GetCache().GetCache<AuthorizeDataModel>(LoginUserKey);
+                    AuthorizeDataModel dataAuthorize = CacheFactory.CacheFactory.GetCacheInstance().GetCache<AuthorizeDataModel>(LoginUserKey);
                     user.DataAuthorize = dataAuthorize;
                     #endregion
                 }
@@ -89,7 +89,7 @@ namespace BerryCMS.Code.Operator
                 CookieHelper.DelCookie(LoginUserKey.Trim());
 
                 #region 解决cookie时，设置数据权限较多时无法登陆的bug
-                CacheFactory.CacheFactory.GetCache().RemoveCache(LoginUserKey);
+                CacheFactory.CacheFactory.GetCacheInstance().RemoveCache(LoginUserKey);
                 #endregion
             }
             else
@@ -111,7 +111,7 @@ namespace BerryCMS.Code.Operator
                     str = CookieHelper.GetCookie(LoginUserKey);
 
                     #region 解决cookie时，设置数据权限较多时无法登陆的bug
-                    AuthorizeDataModel dataAuthorize = CacheFactory.CacheFactory.GetCache().GetCache<AuthorizeDataModel>(LoginUserKey);
+                    AuthorizeDataModel dataAuthorize = CacheFactory.CacheFactory.GetCacheInstance().GetCache<AuthorizeDataModel>(LoginUserKey);
 
                     if (dataAuthorize == null)
                     {
@@ -143,7 +143,7 @@ namespace BerryCMS.Code.Operator
                 user = DESEncryptHelper.Decrypt(CookieHelper.GetCookie(LoginUserKey).ToString()).JsonToEntity<OperatorEntity>();
 
                 #region 解决cookie时，设置数据权限较多时无法登陆的bug
-                AuthorizeDataModel dataAuthorize = CacheFactory.CacheFactory.GetCache().GetCache<AuthorizeDataModel>(LoginUserKey);
+                AuthorizeDataModel dataAuthorize = CacheFactory.CacheFactory.GetCacheInstance().GetCache<AuthorizeDataModel>(LoginUserKey);
                 user.DataAuthorize = dataAuthorize;
                 #endregion
             }
@@ -151,7 +151,7 @@ namespace BerryCMS.Code.Operator
             {
                 user = DESEncryptHelper.Decrypt(SessionHelper.GetSession<string>(LoginUserKey).ToString()).JsonToEntity<OperatorEntity>();
             }
-            object token = CacheFactory.CacheFactory.GetCache().GetCache<string>(user.UserId);
+            object token = CacheFactory.CacheFactory.GetCacheInstance().GetCache<string>(user.UserId);
             if (token == null)
             {
                 return -1;//过期

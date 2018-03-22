@@ -19,11 +19,11 @@ namespace BerryCMS.App.Cache
         /// <returns></returns>
         public IEnumerable<OrganizeEntity> GetList()
         {
-            List<OrganizeEntity> cacheList = CacheFactory.CacheFactory.GetCache().GetCache<List<OrganizeEntity>>(_organizeBll.CacheKey);
+            List<OrganizeEntity> cacheList = CacheFactory.CacheFactory.GetCacheInstance().GetCache<List<OrganizeEntity>>(_organizeBll.CacheKey);
             if (cacheList == null)
             {
                 cacheList = _organizeBll.GetOrganizeList().ToList();
-                CacheFactory.CacheFactory.GetCache().WriteCache(cacheList, _organizeBll.CacheKey, DateTime.Now.AddHours(12));
+                CacheFactory.CacheFactory.GetCacheInstance().WriteCache(cacheList, _organizeBll.CacheKey, DateTime.Now.AddHours(12));
             }
 
             return cacheList;
