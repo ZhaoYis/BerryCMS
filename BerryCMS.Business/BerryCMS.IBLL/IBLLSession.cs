@@ -61,5 +61,17 @@ namespace BerryCMS.IBLL
         /// 岗位管理
         /// </summary>
         IPostBLL PostBll { get; set; }
+        /// <summary>
+        /// 角色管理
+        /// </summary>
+        IRoleBLL RoleBll { get; set; }
+        /// <summary>
+        /// 数据字典分类
+        /// </summary>
+        IDataItemBLL DataItemBll { get; set; }
+        /// <summary>
+        /// 数据字典明细
+        /// </summary>
+        IDataItemDetailBLL DataItemDetailBll { get; set; }
     }
 }

@@ -53,12 +53,15 @@
     <Compile Include="BaseManage\DepartmentService.cs" />
     <Compile Include="BaseManage\OrganizeService.cs" />
     <Compile Include="BaseManage\PostService.cs" />
+    <Compile Include="BaseManage\RoleService.cs" />
     <Compile Include="BaseManage\UserGroupService.cs" />
     <Compile Include="Base\BaseService.cs" />
     <Compile Include="Base\CommonService.cs" />
     <Compile Include="Base\OperContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BaseManage\UserService.cs" />
+    <Compile Include="SystemManage\DataItemDetailService.cs" />
+    <Compile Include="SystemManage\DataItemService.cs" />
     <Compile Include="SystemManage\LogService.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,6 @@
 ﻿using System;
+using BerryCMS.Code.Operator;
+using BerryCMS.Utils;
 using Chloe.Entity;
 
 namespace BerryCMS.Entity.SystemManage
@@ -9,6 +11,33 @@ namespace BerryCMS.Entity.SystemManage
     [Table("Base_DataItemDetail")]
     public class DataItemDetailEntity : BaseEntity
     {
+        #region 扩展操作
+        /// <summary>
+        /// 新增调用
+        /// </summary>
+        public override void Create()
+        {
+            this.ItemDetailId = CommonHelper.GetGuid().ToString();
+            this.CreateDate = DateTime.Now;
+            this.CreateUserId = OperatorProvider.Provider.Current().UserId;
+            this.CreateUserName = OperatorProvider.Provider.Current().UserName;
+            this.DeleteMark = false;
+            this.EnabledMark = true;
+        }
+
+        /// <summary>
+        /// 编辑调用
+        /// </summary>
+        /// <param name="keyValue"></param>
+        public override void Modify(string keyValue)
+        {
+            this.ItemDetailId = keyValue;
+            this.ModifyDate = DateTime.Now;
+            this.ModifyUserId = OperatorProvider.Provider.Current().UserId;
+            this.ModifyUserName = OperatorProvider.Provider.Current().UserName;
+        }
+        #endregion
+
         /// <summary>
         /// 明细主键
         /// </summary>

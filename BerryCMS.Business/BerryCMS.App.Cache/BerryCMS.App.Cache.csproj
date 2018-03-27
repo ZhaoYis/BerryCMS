@@ -41,10 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataItemCache.cs" />
+    <Compile Include="DataItemDetailCache.cs" />
     <Compile Include="DepartmentCache.cs" />
     <Compile Include="OrganizeCache.cs" />
     <Compile Include="PostCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleCache.cs" />
+    <Compile Include="UserCache.cs" />
     <Compile Include="UserGroupCache.cs" />
   </ItemGroup>
   <ItemGroup>

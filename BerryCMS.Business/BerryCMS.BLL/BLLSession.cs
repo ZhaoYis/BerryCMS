@@ -204,5 +204,50 @@ namespace BerryCMS.BLL
             }
         }
         #endregion
+        
+        #region 14、系统角色管理业务接口 IRoleBLL
+        private IRoleBLL _iRoleBll;
+        public IRoleBLL RoleBll
+        {
+            get
+            {
+                return _iRoleBll ?? (_iRoleBll = new RoleBLL());
+            }
+            set
+            {
+                _iRoleBll = value;
+            }
+        }
+        #endregion
+        
+        #region 15、系统数据字典分类管理业务接口 IDataItemBLL
+        private IDataItemBLL _iDataItemBll;
+        public IDataItemBLL DataItemBll
+        {
+            get
+            {
+                return _iDataItemBll ?? (_iDataItemBll = new DataItemBLL());
+            }
+            set
+            {
+                _iDataItemBll = value;
+            }
+        }
+        #endregion
+
+        #region 16、系统数据字典明细管理业务接口 IDataItemDetailBLL
+        private IDataItemDetailBLL _iDataItemDetailBll;
+        public IDataItemDetailBLL DataItemDetailBll
+        {
+            get
+            {
+                return _iDataItemDetailBll ?? (_iDataItemDetailBll = new DataItemDetailBLL());
+            }
+            set
+            {
+                _iDataItemDetailBll = value;
+            }
+        }
+        #endregion
     }
 }

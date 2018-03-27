@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq.Expressions;
 using BerryCMS.Code;
+using BerryCMS.Entity;
 using BerryCMS.Entity.BaseManage;
 using BerryCMS.IBLL.BaseManage;
 using BerryCMS.Service.BaseManage;
@@ -13,11 +15,27 @@ namespace BerryCMS.BLL.BaseManage
     /// </summary>
     public partial class UserBLL : BaseBLL<UserEntity>, IUserBLL
     {
-        private UserService userService = new UserService();
+        private readonly UserService _userService = new UserService();
+
+        /// <summary>
+        /// 缓存key
+        /// </summary>
+        public string CacheKey = "__UserCacheKey";
 
         protected override void SetDal()
         {
             Idal = DbSession.UserDal;
+        }
+
+        /// <summary>
+        /// 账户不能重复
+        /// </summary>
+        /// <param name="account">账户值</param>
+        /// <param name="keyValue">主键</param>
+        /// <returns></returns>
+        public bool ExistAccount(string account, string keyValue)
+        {
+            return _userService.ExistAccount(account, keyValue);
         }
 
         /// <summary>
@@ -27,7 +45,7 @@ namespace BerryCMS.BLL.BaseManage
         /// <returns></returns>
         public bool AddUser(UserEntity user)
         {
-            return userService.AddUser(user);
+            return _userService.AddUser(user);
         }
 
         /// <summary>
@@ -36,7 +54,57 @@ namespace BerryCMS.BLL.BaseManage
         /// <param name="users">用户实体集合</param>
         public void AddUser(List<UserEntity> users)
         {
-            userService.AddUser(users);
+            _userService.AddUser(users);
+        }
+
+        /// <summary>
+        /// 保存用户表单（新增、修改）
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <param name="userEntity">用户实体</param>
+        /// <returns></returns>
+        public bool AddUser(string keyValue, UserEntity userEntity)
+        {
+            return _userService.AddUser(keyValue, userEntity);
+        }
+
+        /// <summary>
+        /// 删除用户
+        /// </summary>
+        /// <param name="keyValue">主键</param>
+        public void RemoveUserByKey(string keyValue)
+        {
+            _userService.RemoveUserByKey(keyValue);
+        }
+
+        /// <summary>
+        /// 修改用户登录密码
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <param name="password">新密码（MD5 小写）</param>
+        /// <param name="secretkey">密钥</param>
+        public void RevisePassword(string keyValue, string password, string secretkey)
+        {
+            _userService.RevisePassword(keyValue, password, secretkey);
+        }
+
+        /// <summary>
+        /// 修改用户状态
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <param name="state">状态：1-启动 0-禁用</param>
+        public void UpdateUserState(string keyValue, int state)
+        {
+            _userService.UpdateUserState(keyValue, state);
+        }
+
+        /// <summary>
+        /// 修改用户信息
+        /// </summary>
+        /// <param name="userEntity">实体对象</param>
+        public void UpdateUserInfo(UserEntity userEntity)
+        {
+            _userService.UpdateUserInfo(userEntity);
         }
 
         /// <summary>
@@ -48,7 +116,16 @@ namespace BerryCMS.BLL.BaseManage
         /// <returns></returns>
         public UserEntity CheckLogin(string userAccount, string password, out JsonObjectStatus status)
         {
-            return userService.CheckLogin(userAccount, password, out status);
+            return _userService.CheckLogin(userAccount, password, out status);
+        }
+
+        /// <summary>
+        /// 用户列表
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<UserEntity> GetUserList()
+        {
+            return _userService.GetUserList();
         }
 
         /// <summary>
@@ -58,7 +135,7 @@ namespace BerryCMS.BLL.BaseManage
         /// <returns></returns>
         public UserEntity QueryUserByUserId(string userId)
         {
-            return userService.QueryUserByUserId(userId);
+            return _userService.QueryUserByUserId(userId);
         }
 
         /// <summary>
@@ -68,7 +145,7 @@ namespace BerryCMS.BLL.BaseManage
         /// <returns></returns>
         public UserEntity QueryUser(Expression<Func<UserEntity, bool>> query)
         {
-            return userService.QueryUser(query);
+            return _userService.QueryUser(query);
         }
 
         /// <summary>
@@ -78,7 +155,45 @@ namespace BerryCMS.BLL.BaseManage
         /// <returns></returns>
         public List<UserEntity> QueryUserList(Expression<Func<UserEntity, bool>> query)
         {
-            return userService.QueryUserList(query);
+            return _userService.QueryUserList(query);
+        }
+
+        /// <summary>
+        /// 用户列表
+        /// </summary>
+        /// <param name="pagination">分页</param>
+        /// <param name="queryJson">查询参数</param>
+        /// <returns></returns>
+        public IEnumerable<UserEntity> GetPageList(PaginationEntity pagination, string queryJson)
+        {
+            return _userService.GetPageList(pagination, queryJson);
+        }
+
+        /// <summary>
+        /// 用户列表
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetTable()
+        {
+            return _userService.GetTable();
+        }
+
+        /// <summary>
+        /// 用户列表（ALL）
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetAllUserTable()
+        {
+            return _userService.GetAllUserTable();
+        }
+
+        /// <summary>
+        /// 导出用户列表
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetExportList()
+        {
+            return _userService.GetExportList();
         }
     }
 }

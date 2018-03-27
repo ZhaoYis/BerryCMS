@@ -58,6 +58,7 @@
     <Compile Include="BaseManage\IDepartmentDAL.cs" />
     <Compile Include="BaseManage\IOrganizeDAL.cs" />
     <Compile Include="BaseManage\IPostDAL.cs" />
+    <Compile Include="BaseManage\IRoleDAL.cs" />
     <Compile Include="BaseManage\IUserGroupDAL.cs" />
     <Compile Include="BaseManage\IUserRelationDAL.cs" />
     <Compile Include="BaseManage\IUserDAL.cs" />
@@ -68,6 +69,8 @@
     <Compile Include="IDBSession.cs" />
     <Compile Include="IDBSessionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemManage\IDataItemDAL.cs" />
+    <Compile Include="SystemManage\IDataItemDetailDAL.cs" />
     <Compile Include="SystemManage\ILogDAL.cs" />
   </ItemGroup>
   <ItemGroup>

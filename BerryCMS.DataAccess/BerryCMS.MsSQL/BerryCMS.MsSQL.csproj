@@ -53,12 +53,15 @@
     <Compile Include="BaseManage\DepartmentDAL.cs" />
     <Compile Include="BaseManage\OrganizeDAL.cs" />
     <Compile Include="BaseManage\PostDAL.cs" />
+    <Compile Include="BaseManage\RoleDAL.cs" />
     <Compile Include="BaseManage\UserGroupDAL.cs" />
     <Compile Include="BaseManage\UserRelationDAL.cs" />
     <Compile Include="BaseManage\UserDAL.cs" />
     <Compile Include="DBSessionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DBSession.cs" />
+    <Compile Include="SystemManage\DataItemDAL.cs" />
+    <Compile Include="SystemManage\DataItemDetailDAL.cs" />
     <Compile Include="SystemManage\LogDAL.cs" />
   </ItemGroup>
   <ItemGroup>

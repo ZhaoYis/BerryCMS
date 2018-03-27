@@ -64,10 +64,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemManage\DataItemDetailEntity.cs" />
     <Compile Include="SystemManage\DataItemEntity.cs" />
+    <Compile Include="ViewModel\DataItemViewModel.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

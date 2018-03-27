@@ -204,5 +204,50 @@ namespace BerryCMS.MsSQL
             }
         }
         #endregion
+
+        #region 14、系统角色管理接口 IRoleDAL
+        private IRoleDAL _iRoleDal;
+        public IRoleDAL RoleDal
+        {
+            get
+            {
+                return _iRoleDal ?? (_iRoleDal = new RoleDAL());
+            }
+            set
+            {
+                _iRoleDal = value;
+            }
+        }
+        #endregion
+
+        #region 15、系统数据字典分类管理接口 IDataItemDAL
+        private IDataItemDAL _iDataItemDal;
+        public IDataItemDAL DataItemDal
+        {
+            get
+            {
+                return _iDataItemDal ?? (_iDataItemDal = new DataItemDAL());
+            }
+            set
+            {
+                _iDataItemDal = value;
+            }
+        }
+        #endregion
+
+        #region 16、系统数据字典明细管理接口 IDataItemDetailDAL
+        private IDataItemDetailDAL _iDataItemDetailDal;
+        public IDataItemDetailDAL DataItemDetailDal
+        {
+            get
+            {
+                return _iDataItemDetailDal ?? (_iDataItemDetailDal = new DataItemDetailDAL());
+            }
+            set
+            {
+                _iDataItemDetailDal = value;
+            }
+        }
+        #endregion
     }
 }

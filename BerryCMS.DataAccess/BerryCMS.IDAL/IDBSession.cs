@@ -65,5 +65,17 @@ namespace BerryCMS.IDAL
         /// 岗位管理
         /// </summary>
         IPostDAL PostDal { get; set; }
+        /// <summary>
+        /// 角色管理
+        /// </summary>
+        IRoleDAL RoleDal { get; set; }
+        /// <summary>
+        /// 数据字典分类
+        /// </summary>
+        IDataItemDAL DataItemDal { get; set; }
+        /// <summary>
+        /// 数据字典明细
+        /// </summary>
+        IDataItemDetailDAL DataItemDetailDal { get; set; }
     }
 }

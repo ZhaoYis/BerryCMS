@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data;
+using BerryCMS.Code.Operator;
+using BerryCMS.Utils;
 using Chloe.Entity;
 
 namespace BerryCMS.Entity.BaseManage
@@ -12,13 +14,27 @@ namespace BerryCMS.Entity.BaseManage
     {
         #region 扩展操作
         /// <summary>
-        /// 新增时调用
+        /// 新增调用
         /// </summary>
         public override void Create()
         {
+            this.UserId = CommonHelper.GetGuid().ToString();
+            this.CreateDate = DateTime.Now;
+            this.CreateUserId = OperatorProvider.Provider.Current().UserId;
+            this.CreateUserName = OperatorProvider.Provider.Current().UserName;
             this.DeleteMark = false;
             this.EnabledMark = true;
-            this.CreateDate = DateTime.Now;
+        }
+        /// <summary>
+        /// 编辑调用
+        /// </summary>
+        /// <param name="keyValue"></param>
+        public override void Modify(string keyValue)
+        {
+            this.UserId = keyValue;
+            this.ModifyDate = DateTime.Now;
+            this.ModifyUserId = OperatorProvider.Provider.Current().UserId;
+            this.ModifyUserName = OperatorProvider.Provider.Current().UserName;
         }
         #endregion
 
@@ -64,7 +80,7 @@ namespace BerryCMS.Entity.BaseManage
         /// </summary>
         public string SimpleSpelling { get; set; }
         /// <summary>
-        /// 性别
+        /// 性别 1-男 2-女 3-未知
         /// </summary>
         public int Gender { get; set; }
         /// <summary>

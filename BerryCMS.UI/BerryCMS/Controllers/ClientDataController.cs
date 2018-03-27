@@ -8,7 +8,9 @@ using BerryCMS.BLL.AuthorizeManage;
 using BerryCMS.Code;
 using BerryCMS.Entity.AuthorizeManage;
 using BerryCMS.Entity.BaseManage;
+using BerryCMS.Entity.ViewModel;
 using BerryCMS.Handler;
+using BerryCMS.Utils;
 
 namespace BerryCMS.Controllers
 {
@@ -25,6 +27,9 @@ namespace BerryCMS.Controllers
         private readonly DepartmentCache _departmentCache = new DepartmentCache();
         private readonly UserGroupCache _userGroupCache = new UserGroupCache();
         private readonly PostCache _postCache = new PostCache();
+        private readonly RoleCache _roleCache = new RoleCache();
+        private readonly UserCache _userCache = new UserCache();
+        private readonly DataItemDetailCache _dataItemDetailCache = new DataItemDetailCache();
 
         #region 获取数据
         /// <summary>
@@ -57,7 +62,7 @@ namespace BerryCMS.Controllers
         /// 获取公司数据
         /// </summary>
         /// <returns></returns>
-        private object GetOrganizeData()
+        private Dictionary<string, object> GetOrganizeData()
         {
             var data = _organizeCache.GetList();
             Dictionary<string, object> dictionary = new Dictionary<string, object>();
@@ -77,7 +82,7 @@ namespace BerryCMS.Controllers
         /// 获取部门数据
         /// </summary>
         /// <returns></returns>
-        private object GetDepartmentData()
+        private Dictionary<string, object> GetDepartmentData()
         {
             var data = _departmentCache.GetList();
             Dictionary<string, object> dictionary = new Dictionary<string, object>();
@@ -97,7 +102,7 @@ namespace BerryCMS.Controllers
         /// 获取用户组数据
         /// </summary>
         /// <returns></returns>
-        private object GetUserGroupData()
+        private Dictionary<string, object> GetUserGroupData()
         {
             var data = _userGroupCache.GetList();
             Dictionary<string, object> dictionary = new Dictionary<string, object>();
@@ -116,7 +121,7 @@ namespace BerryCMS.Controllers
         /// 获取岗位数据
         /// </summary>
         /// <returns></returns>
-        private object GetPostData()
+        private Dictionary<string, object> GetPostData()
         {
             var data = _postCache.GetList();
             Dictionary<string, object> dictionary = new Dictionary<string, object>();
@@ -135,9 +140,9 @@ namespace BerryCMS.Controllers
         /// 获取角色数据
         /// </summary>
         /// <returns></returns>
-        private object GetRoleData()
+        private Dictionary<string, object> GetRoleData()
         {
-            var data = roleCache.GetList();
+            var data = _roleCache.GetList();
             Dictionary<string, object> dictionary = new Dictionary<string, object>();
             foreach (RoleEntity item in data)
             {
@@ -154,9 +159,9 @@ namespace BerryCMS.Controllers
         /// 获取用户数据
         /// </summary>
         /// <returns></returns>
-        private object GetUserData()
+        private Dictionary<string, object> GetUserData()
         {
-            var data = userCache.GetList();
+            var data = _userCache.GetList();
             Dictionary<string, object> dictionary = new Dictionary<string, object>();
             foreach (UserEntity item in data)
             {
@@ -172,27 +177,32 @@ namespace BerryCMS.Controllers
             }
             return dictionary;
         }
+
         /// <summary>
         /// 获取数据字典
         /// </summary>
         /// <returns></returns>
-        private object GetDataItem()
+        private Dictionary<string, object> GetDataItem()
         {
-            var dataList = dataItemCache.GetDataItemList();
-            var dataSort = dataList.Distinct(new Comparint<DataItemModel>("EnCode"));
+            var dataList = _dataItemDetailCache.GetDataItemList().ToList();
+
+            var dataSort = dataList.Distinct(new ComparintTools<DataItemViewModel>("EnCode"));
             Dictionary<string, object> dictionarySort = new Dictionary<string, object>();
-            foreach (DataItemModel itemSort in dataSort)
+            foreach (DataItemViewModel itemSort in dataSort)
             {
-                var dataItemList = dataList.Where(t => t.EnCode.Equals(itemSort.EnCode));
+                var dataItemList = dataList.Where(t => t.EnCode.Equals(itemSort.EnCode)).ToList();
                 Dictionary<string, string> dictionaryItemList = new Dictionary<string, string>();
-                foreach (DataItemModel itemList in dataItemList)
+
+                foreach (DataItemViewModel itemList in dataItemList)
                 {
                     dictionaryItemList.Add(itemList.ItemValue, itemList.ItemName);
                 }
-                foreach (DataItemModel itemList in dataItemList)
+
+                foreach (DataItemViewModel itemList in dataItemList)
                 {
                     dictionaryItemList.Add(itemList.ItemDetailId, itemList.ItemName);
                 }
+
                 dictionarySort.Add(itemSort.EnCode, dictionaryItemList);
             }
             return dictionarySort;
@@ -204,7 +214,7 @@ namespace BerryCMS.Controllers
         /// 获取功能数据
         /// </summary>
         /// <returns></returns>
-        private object GetModuleData()
+        private IEnumerable<ModuleEntity> GetModuleData()
         {
             return _moduleBll.GetModuleList(SystemInfo.CurrentUserId);
         }
@@ -213,16 +223,18 @@ namespace BerryCMS.Controllers
         /// 获取功能按钮数据
         /// </summary>
         /// <returns></returns>
-        private object GetModuleButtonData()
+        private Dictionary<string, object> GetModuleButtonData()
         {
-            var data = _moduleButtonBll.GetModuleButtonList(SystemInfo.CurrentUserId);
-            var dataModule = data.Distinct(new Comparint<ModuleButtonEntity>("ModuleId"));
+            var data = _moduleButtonBll.GetModuleButtonList(SystemInfo.CurrentUserId).ToList();
+            var dataModule = data.Distinct(new ComparintTools<ModuleButtonEntity>("ModuleId"));
             Dictionary<string, object> dictionary = new Dictionary<string, object>();
+
             foreach (ModuleButtonEntity item in dataModule)
             {
                 var buttonList = data.Where(t => t.ModuleId.Equals(item.ModuleId));
                 dictionary.Add(item.ModuleId, buttonList);
             }
+
             return dictionary;
         }
 
@@ -230,11 +242,12 @@ namespace BerryCMS.Controllers
         /// 获取功能视图数据
         /// </summary>
         /// <returns></returns>
-        private object GetModuleColumnData()
+        private Dictionary<string, object> GetModuleColumnData()
         {
-            var data = _moduleColumnBll.GetModuleColumnList(SystemInfo.CurrentUserId);
-            var dataModule = data.Distinct(new Comparint<ModuleColumnEntity>("ModuleId"));
+            var data = _moduleColumnBll.GetModuleColumnList(SystemInfo.CurrentUserId).ToList();
+            var dataModule = data.Distinct(new ComparintTools<ModuleColumnEntity>("ModuleId"));
             Dictionary<string, object> dictionary = new Dictionary<string, object>();
+
             foreach (ModuleColumnEntity item in dataModule)
             {
                 var columnList = data.Where(t => t.ModuleId.Equals(item.ModuleId));
