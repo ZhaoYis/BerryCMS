@@ -28,7 +28,7 @@ namespace BerryCMS.Entity.AuthorizeManage
         /// <summary>
         /// 排序码
         /// </summary>
-        public int SortCode { get; set; }
+        public int? SortCode { get; set; }
         /// <summary>
         /// 备注
         /// </summary>

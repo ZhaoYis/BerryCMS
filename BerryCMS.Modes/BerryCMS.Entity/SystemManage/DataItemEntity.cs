@@ -57,23 +57,23 @@ namespace BerryCMS.Entity.SystemManage
         /// <summary>
         /// 树型结构
         /// </summary>
-        public int IsTree { get; set; }
+        public int? IsTree { get; set; }
         /// <summary>
         /// 导航标记
         /// </summary>
-        public int IsNav { get; set; }
+        public int? IsNav { get; set; }
         /// <summary>
         /// 排序码
         /// </summary>
-        public int SortCode { get; set; }
+        public int? SortCode { get; set; }
         /// <summary>
         /// 删除标记
         /// </summary>
-        public bool DeleteMark { get; set; }
+        public bool? DeleteMark { get; set; }
         /// <summary>
         /// 有效标志
         /// </summary>
-        public bool EnabledMark { get; set; }
+        public bool? EnabledMark { get; set; }
         /// <summary>
         /// 备注
         /// </summary>

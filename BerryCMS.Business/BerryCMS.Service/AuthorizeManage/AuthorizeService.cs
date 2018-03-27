@@ -192,10 +192,15 @@ namespace BerryCMS.Service.AuthorizeManage
 
             string sql = strSql.ToString().Replace("@UserId", $"'{userId}'");
 
-            DataTable data = o.BllSession.CommonBll.FindTable(sql);
-            IEnumerable<AuthorizeUrlModel> res = data.DataTableToList<AuthorizeUrlModel>();
+            DataTable data = o.BllSession.CommonBll.FindTable(sql, CommandType.Text);
+            if (data.IsExistRows())
+            {
+                IEnumerable<AuthorizeUrlModel> res = data.DataTableToList<AuthorizeUrlModel>();
 
-            return res;
+                return res;
+            }
+
+            return new List<AuthorizeUrlModel>();
         }
     }
 }

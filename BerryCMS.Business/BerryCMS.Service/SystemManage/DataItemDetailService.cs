@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using BerryCMS.Entity.SystemManage;
@@ -65,10 +66,15 @@ namespace BerryCMS.Service.SystemManage
                                     AND d.DeleteMark = 0
                             ORDER BY d.SortCode ASC");
 
-            IEnumerable<DataItemViewModel> res = o.BllSession.CommonBll.FindTable(strSql.ToString())
-                .DataTableToList<DataItemViewModel>();
+            DataTable data = o.BllSession.CommonBll.FindTable(strSql.ToString(), CommandType.Text);
+            if (data.IsExistRows())
+            {
+                IEnumerable<DataItemViewModel> res = data.DataTableToList<DataItemViewModel>();
 
-            return res;
+                return res;
+            }
+
+            return new List<DataItemViewModel>();
         }
 
         /// <summary>

@@ -74,19 +74,19 @@ namespace BerryCMS.Entity.SystemManage
         /// <summary>
         /// 是否默认
         /// </summary>
-        public bool IsDefault { get; set; }
+        public bool? IsDefault { get; set; }
         /// <summary>
         /// 排序码
         /// </summary>
-        public int SortCode { get; set; }
+        public int? SortCode { get; set; }
         /// <summary>
         /// 删除标记
         /// </summary>
-        public bool DeleteMark { get; set; }
+        public bool? DeleteMark { get; set; }
         /// <summary>
         /// 有效标志
         /// </summary>
-        public bool EnabledMark { get; set; }
+        public bool? EnabledMark { get; set; }
         /// <summary>
         /// 备注
         /// </summary>

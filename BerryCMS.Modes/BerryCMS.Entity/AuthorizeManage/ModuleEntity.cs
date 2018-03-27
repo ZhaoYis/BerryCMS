@@ -41,23 +41,23 @@ namespace BerryCMS.Entity.AuthorizeManage
         /// <summary>
         /// 菜单选项
         /// </summary>
-        public bool IsMenu { get; set; }
+        public bool? IsMenu { get; set; }
         /// <summary>
         /// 允许展开
         /// </summary>
-        public bool AllowExpand { get; set; }
+        public bool? AllowExpand { get; set; }
         /// <summary>
         /// 是否公开
         /// </summary>
-        public bool IsPublic { get; set; }
+        public bool? IsPublic { get; set; }
         /// <summary>
         /// 允许编辑
         /// </summary>
-        public bool AllowEdit { get; set; }
+        public bool? AllowEdit { get; set; }
         /// <summary>
         /// 允许删除
         /// </summary>
-        public bool AllowDelete { get; set; }
+        public bool? AllowDelete { get; set; }
         /// <summary>
         /// 排序码
         /// </summary>
@@ -65,11 +65,11 @@ namespace BerryCMS.Entity.AuthorizeManage
         /// <summary>
         /// 删除标记
         /// </summary>
-        public bool DeleteMark { get; set; }
+        public bool? DeleteMark { get; set; }
         /// <summary>
         /// 有效标志
         /// </summary>
-        public bool EnabledMark { get; set; }
+        public bool? EnabledMark { get; set; }
         /// <summary>
         /// 备注
         /// </summary>
@@ -77,7 +77,7 @@ namespace BerryCMS.Entity.AuthorizeManage
         /// <summary>
         /// 创建日期
         /// </summary>
-        public DateTime CreateDate { get; set; }
+        public DateTime? CreateDate { get; set; }
         /// <summary>
         /// 创建用户主键
         /// </summary>
@@ -89,7 +89,7 @@ namespace BerryCMS.Entity.AuthorizeManage
         /// <summary>
         /// 修改日期
         /// </summary>
-        public DateTime ModifyDate { get; set; }
+        public DateTime? ModifyDate { get; set; }
         /// <summary>
         /// 修改用户主键
         /// </summary>

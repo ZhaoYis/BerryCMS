@@ -29,7 +29,7 @@ namespace BerryCMS.Entity.AuthorizeManage
         /// <summary>
         /// 对象分类:1-部门 2-角色 3-岗位 4-职位 5-工作组
         /// </summary>
-        public int Category { get; set; }
+        public int? Category { get; set; }
         /// <summary>
         /// 对象主键
         /// </summary>
@@ -45,11 +45,11 @@ namespace BerryCMS.Entity.AuthorizeManage
         /// <summary>
         /// 排序码
         /// </summary>
-        public int SortCode { get; set; }
+        public int? SortCode { get; set; }
         /// <summary>
         /// 创建时间
         /// </summary>
-        public DateTime CreateDate { get; set; }
+        public DateTime? CreateDate { get; set; }
         /// <summary>
         /// 创建用户主键
         /// </summary>

@@ -302,6 +302,10 @@
       <Project>{f7cff89c-c306-4cc3-a233-76ec8e15332b}</Project>
       <Name>BerryCMS.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\BerryCMS.DataAccess\BerryCMS.MsSQL\BerryCMS.MsSQL.csproj">
+      <Project>{d63a5296-e6dd-443b-84a3-374597bbed87}</Project>
+      <Name>BerryCMS.MsSQL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\BerryCMS.Framework\BerryCMS.CacheFactory\BerryCMS.CacheFactory.csproj">
       <Project>{43cb9c8f-9032-48be-8aad-594183b39fd1}</Project>
       <Name>BerryCMS.CacheFactory</Name>
@@ -341,6 +345,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\AdminDefault.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\AdminDefaultDesktop.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

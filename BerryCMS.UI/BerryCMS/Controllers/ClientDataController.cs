@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.WebPages;
 using BerryCMS.App.Cache;
 using BerryCMS.BLL.AuthorizeManage;
 using BerryCMS.Code;
@@ -255,6 +256,7 @@ namespace BerryCMS.Controllers
             }
             return dictionary;
         }
+
         #endregion
     }
 }

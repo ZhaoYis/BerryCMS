@@ -286,10 +286,13 @@ namespace BerryCMS.MsSQL
         /// 返回DataTable
         /// </summary>
         /// <param name="strSql">T-SQL语句</param>
+        /// <param name="type">CommandType</param>
         /// <returns></returns>
-        public DataTable FindTable(string strSql)
+        public DataTable FindTable(string strSql, CommandType type)
         {
-            DataTable res = _context.SqlQuery<T>(strSql).ToList().ListToDataTable();
+            DataTable res = _context.Session.ExecuteReader(strSql, type).IDataReaderToDataTable();
+            //SqlQuery<T>(strSql).ToList().ListToDataTable();
+            //_context.Session.ExecuteReader(strSql, type).IDataReaderToDataTable();
             return res;
         }
 
@@ -297,11 +300,13 @@ namespace BerryCMS.MsSQL
         /// 返回DataTable
         /// </summary>
         /// <param name="strSql">T-SQL语句</param>
-        /// <param name="DbParam">DbCommand参数</param>
+        /// <param name="type">CommandType</param>
+        /// <param name="dbParam">DbCommand参数</param>
         /// <returns></returns>
-        public DataTable FindTable(string strSql, DbParam[] DbParam)
+        public DataTable FindTable(string strSql, CommandType type, DbParam[] dbParam)
         {
-            DataTable res = _context.SqlQuery<T>(strSql, DbParam).ToList().ListToDataTable();
+            DataTable res = _context.Session.ExecuteReader(strSql, type, dbParam).IDataReaderToDataTable();
+            //.SqlQuery<T>(strSql, dbParam).ToList().ListToDataTable();
             return res;
         }
         #endregion

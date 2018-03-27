@@ -158,23 +158,25 @@ namespace BerryCMS.IBLL
         /// 根据T-SQL语句获取一条数据，返回对象集合
         /// </summary>
         /// <param name="strSql">T-SQL语句</param>
-        /// <param name="DbParam">DbCommand参数</param>
+        /// <param name="dbParam">DbCommand参数</param>
         /// <returns></returns>
-        IEnumerable<T> FindList(string strSql, DbParam[] DbParam);
+        IEnumerable<T> FindList(string strSql, DbParam[] dbParam);
 
         /// <summary>
         /// 返回DataTable
         /// </summary>
         /// <param name="strSql">T-SQL语句</param>
+        /// <param name="type">CommandType</param>
         /// <returns></returns>
-        DataTable FindTable(string strSql);
+        DataTable FindTable(string strSql, CommandType type);
         /// <summary>
         /// 返回DataTable
         /// </summary>
         /// <param name="strSql">T-SQL语句</param>
-        /// <param name="DbParam">DbCommand参数</param>
+        /// <param name="type">CommandType</param>
+        /// <param name="dbParam">DbCommand参数</param>
         /// <returns></returns>
-        DataTable FindTable(string strSql, DbParam[] DbParam);
+        DataTable FindTable(string strSql, CommandType type, DbParam[] dbParam);
         #endregion
 
         #region 分页查询

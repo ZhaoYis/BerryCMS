@@ -285,21 +285,23 @@ namespace BerryCMS.BLL
         /// 返回DataTable
         /// </summary>
         /// <param name="strSql">T-SQL语句</param>
+        /// <param name="type">CommandType</param>
         /// <returns></returns>
-        public DataTable FindTable(string strSql)
+        public DataTable FindTable(string strSql, CommandType type)
         {
-            return Idal.FindTable(strSql);
+            return Idal.FindTable(strSql, type);
         }
 
         /// <summary>
         /// 返回DataTable
         /// </summary>
         /// <param name="strSql">T-SQL语句</param>
-        /// <param name="DbParam">DbCommand参数</param>
+        /// <param name="type">CommandType</param>
+        /// <param name="dbParam">DbCommand参数</param>
         /// <returns></returns>
-        public DataTable FindTable(string strSql, DbParam[] DbParam)
+        public DataTable FindTable(string strSql, CommandType type, DbParam[] dbParam)
         {
-            return Idal.FindTable(strSql, DbParam);
+            return Idal.FindTable(strSql, type, dbParam);
         }
         #endregion
 

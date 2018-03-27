@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using BerryCMS.Entity.AuthorizeManage;
 using BerryCMS.IService.AuthorizeManage;
@@ -38,7 +39,7 @@ namespace BerryCMS.Service.AuthorizeManage
                     DbParam.Create("@UserId",userId)
                };
 
-            IEnumerable<ModuleEntity> res = o.BllSession.ModuleBll.FindList(strSql.ToString(), dbParam);
+            IEnumerable<ModuleEntity> res = o.BllSession.ModuleBll.FindList(strSql.ToString(), dbParam).ToList();
 
             return res;
         }

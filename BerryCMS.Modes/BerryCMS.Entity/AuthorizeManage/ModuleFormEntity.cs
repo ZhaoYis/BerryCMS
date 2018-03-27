@@ -33,15 +33,15 @@ namespace BerryCMS.Entity.AuthorizeManage
         /// <summary>
         /// 排序码
         /// </summary>
-        public int SortCode { get; set; }
+        public int? SortCode { get; set; }
         /// <summary>
         /// </summary>
-        public bool DeleteMark { get; set; }
+        public bool? DeleteMark { get; set; }
         /// <summary>
         /// 删除标记
         /// 有效标志
         /// </summary>
-        public bool EnabledMark { get; set; }
+        public bool? EnabledMark { get; set; }
         /// <summary>
         /// 备注
         /// </summary>
@@ -49,7 +49,7 @@ namespace BerryCMS.Entity.AuthorizeManage
         /// <summary>
         /// 创建日期
         /// </summary>
-        public DateTime CreateDate { get; set; }
+        public DateTime? CreateDate { get; set; }
         /// <summary>
         /// 创建用户主键
         /// </summary>
@@ -61,7 +61,7 @@ namespace BerryCMS.Entity.AuthorizeManage
         /// <summary>
         /// 修改日期
         /// </summary>
-        public DateTime ModifyDate { get; set; }
+        public DateTime? ModifyDate { get; set; }
         /// <summary>
         /// 修改用户主键
         /// </summary>

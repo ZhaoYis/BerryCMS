@@ -29,6 +29,15 @@ namespace BerryCMS.Controllers
         {
             return View();
         }
+
+        /// <summary>
+        /// 后台主页桌面
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult AdminDefaultDesktop()
+        {
+            return View();
+        }
         #endregion
 
         #region 提交数据

@@ -16,8 +16,8 @@ var authorizeColumnData = [];
 $.getclientdata = function () {
     $.ajax({
         url: "/ClientData/GetClientDataJson",
-        type: "post",
-        dataType: "json",
+        type: "POST",
+        dataType: "JSON",
         async: false,
         success: function (data) {
             clientdataItem = data.dataItem;

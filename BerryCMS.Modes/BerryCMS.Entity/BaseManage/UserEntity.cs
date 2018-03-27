@@ -82,7 +82,7 @@ namespace BerryCMS.Entity.BaseManage
         /// <summary>
         /// 性别 1-男 2-女 3-未知
         /// </summary>
-        public int Gender { get; set; }
+        public int? Gender { get; set; }
         /// <summary>
         /// 生日
         /// </summary>
@@ -154,15 +154,15 @@ namespace BerryCMS.Entity.BaseManage
         /// <summary>
         /// 安全级别
         /// </summary>
-        public int SecurityLevel { get; set; }
+        public int? SecurityLevel { get; set; }
         /// <summary>
         /// 在线状态
         /// </summary>
-        public int UserOnLine { get; set; }
+        public int? UserOnLine { get; set; }
         /// <summary>
         /// 单点登录标识
         /// </summary>
-        public int OpenId { get; set; }
+        public int? OpenId { get; set; }
         /// <summary>
         /// 密码提示问题
         /// </summary>
@@ -174,7 +174,7 @@ namespace BerryCMS.Entity.BaseManage
         /// <summary>
         /// 允许多用户同时登录
         /// </summary>
-        public int CheckOnLine { get; set; }
+        public int? CheckOnLine { get; set; }
         /// <summary>
         /// 允许登录时间开始
         /// </summary>
@@ -206,11 +206,11 @@ namespace BerryCMS.Entity.BaseManage
         /// <summary>
         /// 登录次数
         /// </summary>
-        public int LogOnCount { get; set; }
+        public int? LogOnCount { get; set; }
         /// <summary>
         /// 排序码
         /// </summary>
-        public int SortCode { get; set; }
+        public int? SortCode { get; set; }
         /// <summary>
         /// 删除标记
         /// </summary>

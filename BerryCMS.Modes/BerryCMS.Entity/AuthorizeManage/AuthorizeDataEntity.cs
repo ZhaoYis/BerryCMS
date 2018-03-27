@@ -17,11 +17,11 @@ namespace BerryCMS.Entity.AuthorizeManage
         /// <summary>
         /// 1-仅限本人2-仅限本人及下属3-所在部门4-所在公司5-按明细设置
         /// </summary>
-        public int AuthorizeType { get; set; }
+        public int? AuthorizeType { get; set; }
         /// <summary>
         /// 对象分类:1-部门2-角色3-岗位4-职位5-工作组
         /// </summary>
-        public int Category { get; set; }
+        public int? Category { get; set; }
         /// <summary>
         /// 对象主键
         /// </summary>
@@ -41,7 +41,7 @@ namespace BerryCMS.Entity.AuthorizeManage
         /// <summary>
         /// 只读
         /// </summary>
-        public int IsRead { get; set; }
+        public int? IsRead { get; set; }
         /// <summary>
         /// 约束表达式
         /// </summary>
@@ -49,11 +49,11 @@ namespace BerryCMS.Entity.AuthorizeManage
         /// <summary>
         /// 排序码
         /// </summary>
-        public int SortCode { get; set; }
+        public int? SortCode { get; set; }
         /// <summary>
         /// 创建时间
         /// </summary>
-        public DateTime CreateDate { get; set; }
+        public DateTime? CreateDate { get; set; }
         /// <summary>
         /// 创建用户主键
         /// </summary>

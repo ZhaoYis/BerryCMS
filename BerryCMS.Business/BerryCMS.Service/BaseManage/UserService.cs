@@ -324,7 +324,7 @@ namespace BerryCMS.Service.BaseManage
                             WHERE   1 = 1");
             strSql.Append(" AND u.UserId <> 'System' AND u.EnabledMark = 1 AND u.DeleteMark = 0");
 
-            DataTable data = o.BllSession.UserBll.FindTable(strSql.ToString());
+            DataTable data = o.BllSession.UserBll.FindTable(strSql.ToString(), CommandType.Text);
 
             return data;
         }
@@ -360,7 +360,7 @@ namespace BerryCMS.Service.BaseManage
                             WHERE   1 = 1");
             strSql.Append(" AND u.UserId <> 'System' AND u.EnabledMark = 1 AND u.DeleteMark = 0 order by o.FullName,d.FullName,u.RealName");
 
-            DataTable data = o.BllSession.UserBll.FindTable(strSql.ToString());
+            DataTable data = o.BllSession.UserBll.FindTable(strSql.ToString(), CommandType.Text);
 
             return data;
         }
@@ -391,7 +391,7 @@ namespace BerryCMS.Service.BaseManage
                               INNER JOIN Base_Department d ON u.DepartmentId = d.DepartmentId
                               INNER JOIN Base_Organize o ON u.OrganizeId = o.OrganizeId");
 
-            DataTable data = o.BllSession.UserBll.FindTable(strSql.ToString());
+            DataTable data = o.BllSession.UserBll.FindTable(strSql.ToString(), CommandType.Text);
 
             return data;
         }

@@ -6,7 +6,7 @@ namespace BerryCMS.WebCache
 {
     public class Cache : ICache.IBaseCache
     {
-        private static System.Web.Caching.Cache _cache = HttpRuntime.Cache;
+        private readonly System.Web.Caching.Cache _cache = HttpRuntime.Cache;
 
         /// <summary>
         /// 读取缓存
@@ -17,10 +17,11 @@ namespace BerryCMS.WebCache
         {
             if (_cache[cacheKey] != null)
             {
-                return (T)_cache[cacheKey];
+                return _cache[cacheKey] as T;
             }
             return default(T);
         }
+
         /// <summary>
         /// 写入缓存
         /// </summary>
@@ -30,6 +31,7 @@ namespace BerryCMS.WebCache
         {
             _cache.Insert(cacheKey, value, null, DateTime.Now.AddMinutes(10), System.Web.Caching.Cache.NoSlidingExpiration);
         }
+
         /// <summary>
         /// 写入缓存
         /// </summary>
