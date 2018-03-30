@@ -19,7 +19,7 @@ namespace BerryCMS.Controllers
     /// 客户端基础数据
     /// </summary>
     public class ClientDataController : BaseController
-    {
+    { 
         private readonly ModuleBLL _moduleBll = new ModuleBLL();
         private readonly ModuleButtonBLL _moduleButtonBll = new ModuleButtonBLL();
         private readonly ModuleColumnBLL _moduleColumnBll = new ModuleColumnBLL();

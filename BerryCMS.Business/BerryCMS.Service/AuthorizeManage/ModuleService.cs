@@ -51,7 +51,7 @@ namespace BerryCMS.Service.AuthorizeManage
         public IEnumerable<ModuleEntity> GetModuleList()
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append(@"SELECT * FROM Base_Module AND EnabledMark = 1 AND DeleteMark = 0 Order By SortCode");
+            strSql.Append(@"SELECT * FROM Base_Module WHERE EnabledMark = 1 AND DeleteMark = 0 Order By SortCode");
 
             IEnumerable<ModuleEntity> res = o.BllSession.ModuleBll.FindList(strSql.ToString());
 

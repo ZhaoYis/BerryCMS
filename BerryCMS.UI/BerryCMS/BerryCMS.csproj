@@ -143,8 +143,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\Handler\AjaxOnlyAttribute.cs" />
     <Compile Include="App_Start\Handler\BaseController.cs" />
+    <Compile Include="App_Start\Handler\HandlerAuthorizeAttribute.cs" />
     <Compile Include="App_Start\Handler\HandlerLoginAttribute.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\AuthorizeManage\AuthorizeManageAreaRegistration.cs" />
+    <Compile Include="Areas\BaseManage\BaseManageAreaRegistration.cs" />
+    <Compile Include="Areas\SystemManage\Controllers\DataItemController.cs" />
+    <Compile Include="Areas\SystemManage\SystemManageAreaRegistration.cs" />
     <Compile Include="Controllers\ClientDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -154,11 +159,26 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\a2.png" />
+    <Content Include="Content\images\accept.png" />
     <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\arrow.png" />
+    <Content Include="Content\images\black_arrow_8.png" />
+    <Content Include="Content\images\button_pm_close.png" />
+    <Content Include="Content\images\datepicker_icon.png" />
+    <Content Include="Content\images\duihao_03.png" />
+    <Content Include="Content\images\file_arrow.png" />
+    <Content Include="Content\images\line.png" />
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\loading1.gif" />
+    <Content Include="Content\images\micon.png" />
+    <Content Include="Content\images\no_data.png" />
+    <Content Include="Content\images\no_query.png" />
     <Content Include="Content\images\off-line.png" />
     <Content Include="Content\images\on-line.png" />
+    <Content Include="Content\images\splitLine_bg.gif" />
+    <Content Include="Content\images\tab_close.png" />
+    <Content Include="Content\images\validatebox_warning.png" />
     <Content Include="Content\scripts\berry-login.js" />
     <Content Include="Content\scripts\bootstrap\bootstrap.js" />
     <Content Include="Content\scripts\bootstrap\bootstrap.min.css" />
@@ -167,6 +187,24 @@
     <Content Include="Content\scripts\jquery\jquery-2.0.3.js" />
     <Content Include="Content\scripts\jquery\jquery-2.0.3.min.js" />
     <Content Include="Content\scripts\plugins\cookie\jquery.cookie.js" />
+    <Content Include="Content\scripts\plugins\datepicker\calendar.js" />
+    <Content Include="Content\scripts\plugins\datepicker\DatePicker.js" />
+    <Content Include="Content\scripts\plugins\datepicker\lang\en.js" />
+    <Content Include="Content\scripts\plugins\datepicker\lang\zh-cn.js" />
+    <Content Include="Content\scripts\plugins\datepicker\lang\zh-tw.js" />
+    <Content Include="Content\scripts\plugins\datepicker\skin\datePicker.gif" />
+    <Content Include="Content\scripts\plugins\datepicker\skin\datePicker.png" />
+    <Content Include="Content\scripts\plugins\datepicker\skin\default\datepicker-dev.css" />
+    <Content Include="Content\scripts\plugins\datepicker\skin\default\datepicker.css" />
+    <Content Include="Content\scripts\plugins\datepicker\skin\default\img.gif" />
+    <Content Include="Content\scripts\plugins\datepicker\skin\WdatePicker.css" />
+    <Content Include="Content\scripts\plugins\datepicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Content\scripts\plugins\datepicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Content\scripts\plugins\datepicker\skin\whyGreen\img.gif" />
+    <Content Include="Content\scripts\plugins\datepicker\WdatePicker.js" />
+    <Content Include="Content\scripts\plugins\datetime\moment.min.js" />
+    <Content Include="Content\scripts\plugins\datetime\pikaday.css" />
+    <Content Include="Content\scripts\plugins\datetime\pikaday.js" />
     <Content Include="Content\scripts\plugins\dialog\default\icon-ext.png" />
     <Content Include="Content\scripts\plugins\dialog\default\icon.png" />
     <Content Include="Content\scripts\plugins\dialog\default\loading-0.gif" />
@@ -175,6 +213,10 @@
     <Content Include="Content\scripts\plugins\dialog\default\sprite_main_png.png" />
     <Content Include="Content\scripts\plugins\dialog\dialog.css" />
     <Content Include="Content\scripts\plugins\dialog\dialog.js" />
+    <Content Include="Content\scripts\plugins\jqgrid\grid.locale-cn.js" />
+    <Content Include="Content\scripts\plugins\jqgrid\jqgrid.css" />
+    <Content Include="Content\scripts\plugins\jqgrid\jqgrid.js" />
+    <Content Include="Content\scripts\plugins\jqgrid\jqgrid.min.js" />
     <Content Include="Content\scripts\plugins\jquery.md5.js" />
     <Content Include="Content\scripts\plugins\layer\layer.js" />
     <Content Include="Content\scripts\plugins\layer\mobile\layer.js" />
@@ -185,6 +227,7 @@
     <Content Include="Content\scripts\plugins\layer\skin\default\loading-0.gif" />
     <Content Include="Content\scripts\plugins\layer\skin\default\loading-1.gif" />
     <Content Include="Content\scripts\plugins\layer\skin\default\loading-2.gif" />
+    <Content Include="Content\scripts\plugins\layout\jquery.layout.js" />
     <Content Include="Content\scripts\plugins\tree\images\icons\add.png" />
     <Content Include="Content\scripts\plugins\tree\images\icons\addStep.gif" />
     <Content Include="Content\scripts\plugins\tree\images\icons\addStep_dsbl.gif" />
@@ -251,6 +294,7 @@
     <Content Include="Content\scripts\plugins\tree\images\tree\loading.gif" />
     <Content Include="Content\scripts\plugins\tree\tree.css" />
     <Content Include="Content\scripts\plugins\tree\tree.js" />
+    <Content Include="Content\scripts\plugins\validator\validator.js" />
     <Content Include="Content\scripts\plugins\wizard\wizard.css" />
     <Content Include="Content\scripts\plugins\wizard\wizard.js" />
     <Content Include="Content\scripts\utils\berry-ajax.js" />
@@ -258,6 +302,7 @@
     <Content Include="Content\scripts\utils\berry-index.js" />
     <Content Include="Content\scripts\utils\berry-ui.js" />
     <Content Include="Content\styles\berry-index.css" />
+    <Content Include="Content\styles\berry-report.css" />
     <Content Include="Content\styles\berry-ui.css" />
     <Content Include="Content\styles\font-awesome.min.css" />
     <Content Include="Content\styles\fonts\fontawesome-webfont.svg" />
@@ -277,9 +322,10 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\AuthorizeManage\Controllers\" />
+    <Folder Include="Areas\BaseManage\Controllers\" />
     <Folder Include="Content\skin\" />
     <Folder Include="Views\ClientData\" />
   </ItemGroup>
@@ -330,6 +376,10 @@
       <Project>{69c7e278-3cc7-4420-8c9c-7f49dc4dba30}</Project>
       <Name>BerryCMS.Utils</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\BerryCMS.Framework\BerryCMS.WebControl\BerryCMS.WebControl.csproj">
+      <Project>{faf9017a-37d5-4500-b1b3-07909e71accb}</Project>
+      <Name>BerryCMS.WebControl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\BerryCMS.Modes\BerryCMS.Entity\BerryCMS.Entity.csproj">
       <Project>{4cb6e59d-38c5-4e48-8b10-708a728fd33c}</Project>
       <Name>BerryCMS.Entity</Name>
@@ -348,6 +398,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\AdminDefaultDesktop.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\BaseManage\Views\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\SystemManage\Views\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\AuthorizeManage\Views\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LayoutIndex.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\SystemManage\Views\DataItem\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LayoutForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\SystemManage\Views\DataItem\Form.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -14,23 +14,47 @@ namespace BerryCMS.Extension
         {
             return Expression.Property(expression, propertyName);
         }
+        /// <summary>
+        /// 组合AndAlso
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public static Expression AndAlso(this Expression left, Expression right)
         {
             return Expression.AndAlso(left, right);
         }
         public static Expression Call(this Expression instance, string methodName, params Expression[] arguments)
         {
-            return Expression.Call(instance, instance.Type.GetMethod(methodName), arguments);
+            return Expression.Call(instance, instance.Type.GetMethod(methodName) ?? throw new InvalidOperationException(), arguments);
         }
         public static Expression GreaterThan(this Expression left, Expression right)
         {
             return Expression.GreaterThan(left, right);
         }
+        /// <summary>
+        /// 转成Lambda表达式
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="body"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         public static Expression<T> ToLambda<T>(this Expression body, params ParameterExpression[] parameters)
         {
             return Expression.Lambda<T>(body, parameters);
         }
+
+        /// <summary>
+        /// True
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static Expression<Func<T, bool>> True<T>() { return param => true; }
+        /// <summary>
+        /// False
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static Expression<Func<T, bool>> False<T>() { return param => false; }
         /// <summary>
         /// 组合And
@@ -69,14 +93,14 @@ namespace BerryCMS.Extension
             /// <summary>
             /// The ParameterExpression map
             /// </summary>
-            readonly Dictionary<ParameterExpression, ParameterExpression> map;
+            private readonly Dictionary<ParameterExpression, ParameterExpression> _map;
             /// <summary>
             /// Initializes a new instance of the <see cref="ParameterRebinder"/> class.
             /// </summary>
             /// <param name="map">The map.</param>
             ParameterRebinder(Dictionary<ParameterExpression, ParameterExpression> map)
             {
-                this.map = map ?? new Dictionary<ParameterExpression, ParameterExpression>();
+                this._map = map ?? new Dictionary<ParameterExpression, ParameterExpression>();
             }
             /// <summary>
             /// Replaces the parameters.
@@ -95,12 +119,11 @@ namespace BerryCMS.Extension
             /// <returns>Expression</returns>
             protected override Expression VisitParameter(ParameterExpression p)
             {
-                ParameterExpression replacement;
-
-                if (map.TryGetValue(p, out replacement))
+                if (_map.TryGetValue(p, out ParameterExpression replacement))
                 {
                     p = replacement;
                 }
+
                 return base.VisitParameter(p);
             }
         }

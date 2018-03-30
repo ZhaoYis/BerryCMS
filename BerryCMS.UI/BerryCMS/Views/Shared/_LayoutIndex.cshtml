@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @Scripts.Render("~/bundles/jquery"
+                    , "~/bundles/bootstrap/js"
+                    , "~/bundles/utils"
+                    , "~/bundles/jqgrid/js"
+                    , "~/bundles/tree/js")
+
+    @Styles.Render("~/bundles/bootstrap/css"
+                    , "~/bundles/jqgrid/css"
+                    , "~/bundles/tree/css")
+    
+    <!--表单验证-->
+    <script src="~/Content/scripts/plugins/validator/validator.js"></script>
+</head>
+<body>
+    @RenderBody()
+    @Html.AntiForgeryToken()
+</body>
+</html>
